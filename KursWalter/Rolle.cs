@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace KursWalter
 {
-    class Rolle
+    class Role
     {
+        /* TODO:
+         * insert the role of the person
+         * 
+         */
     }
 }
