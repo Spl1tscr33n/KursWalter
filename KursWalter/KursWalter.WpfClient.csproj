@@ -84,9 +84,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Persistence\DBConnection.cs" />
-    <Compile Include="Role.cs" />
-
     <Compile Include="UCLogin.xaml.cs">
       <DependentUpon>UCLogin.xaml</DependentUpon>
     </Compile>
