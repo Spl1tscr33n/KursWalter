@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KursWalter
+namespace Kurswalter.Core
 {
-    class Role
+    public class Class1
     {
-        /* TODO:
-         * insert the role of the person
-         * 
-         */
     }
 }
