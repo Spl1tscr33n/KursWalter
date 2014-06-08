@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="200">
-    <Border BorderBrush="Black" BorderThickness="5">
-        <Grid Background="Aqua">
+    <Border BorderBrush="Black" BorderThickness="1">
+        <Grid Background="LightGray">
             <TextBlock VerticalAlignment="Top"  Text="Hier Kommt später das Logo rein!" TextWrapping="Wrap"  FontWeight="Bold" Margin="28,29,52,0"/>
         </Grid>
     </Border>

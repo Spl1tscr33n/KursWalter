@@ -42,7 +42,7 @@
             
         </Style>
     </UserControl.Resources>
-    
+    <Border BorderBrush="Black" BorderThickness="1">
     <Grid Width="Auto" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -126,5 +126,6 @@
             <Button Grid.Row="7" Grid.Column="4" Content="abschicken" Style="{StaticResource ButtonStyle}" />
         </Grid>
     </Grid>
+    </Border>
 
 </UserControl>
