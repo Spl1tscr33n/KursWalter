@@ -39,10 +39,11 @@
             <Setter Property="Margin" Value="5 5 100 3"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="Auto"/>
             
         </Style>
     </UserControl.Resources>
-    
+    <Border BorderBrush="Black" BorderThickness="2">
     <Grid Width="Auto" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -123,8 +124,8 @@
             <TextBlock Grid.Row="4" Grid.Column="2" Text="E-Mail Wiederholung:* " Style="{StaticResource InputTextBlockStyle}"/>
             <TextBox Grid.Row="4" Grid.Column="3" Style="{StaticResource InputBoxStyles}"/>
             <TextBlock Grid.Row="6" Grid.ColumnSpan="4" Text="alle mit * gekennzeichneten Felder müssen Ausgefüllt sein!" FontSize="8" HorizontalAlignment="Center"/>
-            <Button Grid.Row="7" Grid.Column="4" Content="abschicken" Style="{StaticResource ButtonStyle}" />
+            <Button Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="4" Content="abschicken" Style="{StaticResource ButtonStyle}" />
         </Grid>
     </Grid>
-
+    </Border>
 </UserControl>
