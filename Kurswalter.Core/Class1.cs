@@ -8,5 +8,6 @@ namespace Kurswalter.Core
 {
     public class Class1
     {
+        //werde hier heute abend anfangen
     }
 }
