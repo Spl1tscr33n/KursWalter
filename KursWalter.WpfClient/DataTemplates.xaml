@@ -8,4 +8,7 @@
     <DataTemplate x:Key="InfoFrameViewModelTemplate">
         <l:InfoFrameView />
     </DataTemplate>
+    <DataTemplate x:Key="HeaderLogoViewModelTemplate">
+        <l:UCHeaderLogo/>
+    </DataTemplate>
 </ResourceDictionary>
