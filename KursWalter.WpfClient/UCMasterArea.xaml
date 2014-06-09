@@ -16,7 +16,6 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-
     </StackPanel>
     </Border>
 </UserControl>
