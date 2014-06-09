@@ -8,4 +8,10 @@
     <DataTemplate x:Key="InfoFrameViewModelTemplate">
         <l:InfoFrameView />
     </DataTemplate>
+    <DataTemplate x:Key="HeaderLogoViewModelTemplate">
+        <l:UCHeaderLogo/>
+    </DataTemplate>
+    <DataTemplate x:Key="MasterViewModelTemplate">
+        <l:UCMasterArea/>
+    </DataTemplate>
 </ResourceDictionary>
