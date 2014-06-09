@@ -1,0 +1,8 @@
+﻿
+
+
+
+
+
+- create usercontrol for login
+- changed project name from KursWalter to KursWalter.WpfClient
