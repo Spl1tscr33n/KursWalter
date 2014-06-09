@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="KursWalter.WpfClient.InfoFrameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.Resources>
+        <Style x:Key="HeaderTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="Width" Value="Auto"/>
+        </Style>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+        </Style>
+        <Style x:Key="InputTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="0 3 3 3"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            
+        </Style>
+       
+        <Style x:Key="InputBoxStyles" TargetType="FrameworkElement">
+
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="3 3 3 3"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Margin" Value="5 5 100 3"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="Auto"/>
+            
+        </Style>
+    </UserControl.Resources>
+    <Border BorderBrush="Black" BorderThickness="2">
+    <Grid Width="Auto" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Grid.Row="0" Text="Herzlich Willkommen bei KursWalter!" Style="{StaticResource HeaderTextBlockStyle}" Height="22" Margin="119,0,119,14" Width="262"/>
+
+        <TextBlock Grid.Row="1" Text="Bitte melden Sie sich an oder Registrieren Sie sich" Style="{StaticResource TextBlockStyle}" Height="16" Margin="118,13,118,1" Width="264"/>
+
+        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Text="Benutzname: " Style="{StaticResource InputTextBlockStyle}"/>
+            <TextBox Grid.Row="0"   Style="{StaticResource InputBoxStyles}"/>
+            <TextBlock Grid.Row="1" Text="Passwort: " Style="{StaticResource InputTextBlockStyle}"/>
+            <PasswordBox Grid.Row="1"  Style="{StaticResource InputBoxStyles}"/>
+        </Grid>
+
+        <Button Grid.Row="4" Content="anmelden" Style="{StaticResource ButtonStyle}" Margin="0,5,76,0" VerticalAlignment="Top" />
+
+        <Separator Grid.Row="5" Grid.ColumnSpan="2" Width="Auto" Height="5"/>
+
+        <Grid Grid.Row="6" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="Registriere dich gleich hier:" Style="{StaticResource TextBlockStyle}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Benutzname:* " Style="{StaticResource InputTextBlockStyle}"/>
+            <TextBox Grid.Row="1" Grid.Column="1"  Style="{StaticResource InputBoxStyles}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Anrede:* " Style="{StaticResource InputTextBlockStyle}"/>
+            <ComboBox Grid.Row="2" Grid.Column="1" Style="{StaticResource InputBoxStyles}">
+                <ComboBoxItem Content="-"/>
+                <ComboBoxItem Content="Frau"/>
+                <ComboBoxItem Content="Herr"/>
+            </ComboBox>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Titel: " Style="{StaticResource InputTextBlockStyle}"/>
+            <TextBox Grid.Row="3" Grid.Column="1"  Style="{StaticResource InputBoxStyles}"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Nachname:* " Style="{StaticResource InputTextBlockStyle}"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource InputBoxStyles}"/>
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Vorname:* " Style="{StaticResource InputTextBlockStyle}"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource InputBoxStyles}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="Passwort:* " Style="{StaticResource InputTextBlockStyle}"/>
+            <PasswordBox Grid.Row="1" Grid.Column="3" Style="{StaticResource InputBoxStyles}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="Passwort Wiederholung:* " Style="{StaticResource InputTextBlockStyle}"/>
+            <PasswordBox Grid.Row="2" Grid.Column="3" Style="{StaticResource InputBoxStyles}"/>
+            <TextBlock Grid.Row="3" Grid.Column="2" Text="E-Mail Adresse:* " Style="{StaticResource InputTextBlockStyle}"/>
+            <TextBox Grid.Row="3" Grid.Column="3" Style="{StaticResource InputBoxStyles}"/>
+            <TextBlock Grid.Row="4" Grid.Column="2" Text="E-Mail Wiederholung:* " Style="{StaticResource InputTextBlockStyle}"/>
+            <TextBox Grid.Row="4" Grid.Column="3" Style="{StaticResource InputBoxStyles}"/>
+            <TextBlock Grid.Row="6" Grid.ColumnSpan="4" Text="alle mit * gekennzeichneten Felder müssen Ausgefüllt sein!" FontSize="8" HorizontalAlignment="Center"/>
+            <Button Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="4" Content="abschicken" Style="{StaticResource ButtonStyle}" />
+        </Grid>
+    </Grid>
+    </Border>
+</UserControl>

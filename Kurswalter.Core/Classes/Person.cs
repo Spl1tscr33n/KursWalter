@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kurswalter.Core
+namespace Kurswalter.Core.Classes
 {
-    public class Class1
+    class Person
     {
-        //werde hier heute abend anfangen test um 8
     }
 }

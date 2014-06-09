@@ -1,0 +1,5 @@
+C:\Users\rk-002\Source\Repos\Kurswalter\Kurswalter.Core\bin\Debug\Kurswalter.Core.dll
+C:\Users\rk-002\Source\Repos\Kurswalter\Kurswalter.Core\bin\Debug\Kurswalter.Core.pdb
+C:\Users\rk-002\Source\Repos\Kurswalter\Kurswalter.Core\obj\Debug\Kurswalter.Core.csprojResolveAssemblyReference.cache
+C:\Users\rk-002\Source\Repos\Kurswalter\Kurswalter.Core\obj\Debug\Kurswalter.Core.dll
+C:\Users\rk-002\Source\Repos\Kurswalter\Kurswalter.Core\obj\Debug\Kurswalter.Core.pdb
