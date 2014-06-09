@@ -32,16 +32,18 @@ namespace KursWalter.Persistence
             }
             try
             {
+                //Todo: Ricardo Textbox add
                 Console.WriteLine("\n Mysql version: {0}", conn.ServerVersion);
             }
             catch (MySqlException ex)
             {
+                //Todo: Ricardo Textbox add
                 Console.WriteLine(ex.ToString());
             }
             finally
             {
                 conn.Close();
-
+                conn.Dispose();
             }
         }
     }
