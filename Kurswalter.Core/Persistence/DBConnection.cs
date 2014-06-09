@@ -10,7 +10,16 @@ namespace KursWalter.Persistence
     class DBConnection
     {
         MySqlConnection conn = null;
-        protected string connectionString; 
+        protected string connectionString;
+        private bool _isConnected = false;
+
+        public bool IsConnected
+        {
+            get
+            {
+                return _isConnected;
+            }
+        }
         public DBConnection(string host, string db_name, string user, string password)
         {
             if ((host == null) || (db_name == null) || (user == null) || (password == null))
@@ -20,31 +29,30 @@ namespace KursWalter.Persistence
             connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
         }
 
-        public bool connect()
+        public string connect()
         {
+            string ret = "";
             conn = new MySqlConnection(connectionString);
-            if (conn == null)
-                return false;
-            else
-            {
-                conn.Open();
-                return true;
-            }
             try
             {
-                //Todo: Ricardo Textbox add
-                Console.WriteLine("\n Mysql version: {0}", conn.ServerVersion);
+                conn.Open();
+                _isConnected = true;
+                ret = "Mysql version: " + conn.ServerVersion;
             }
             catch (MySqlException ex)
             {
-                //Todo: Ricardo Textbox add
-                Console.WriteLine(ex.ToString());
-            }
-            finally
-            {
+                ret += ex.Message;
                 conn.Close();
                 conn.Dispose();
             }
+            return ret;
+        }
+
+        public void disconnect()
+        {
+            _isConnected = false;
+            conn.Close();
+            conn.Dispose();
         }
     }
 }
