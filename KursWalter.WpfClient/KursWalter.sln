@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursWalter.WpfClient", "KursWalter.WpfClient.csproj", "{194956E9-86B2-4A43-A685-178B07476603}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kurswalter.Core", "..\Kurswalter.Core\Kurswalter.Core.csproj", "{1C8CFBA2-F88D-4055-AC45-B289C11D82E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BF299B5D-FE2F-407A-B3DD-9061BBEF4EF6}"
@@ -14,20 +12,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BF299B
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursWalter.WpfClient", "..\..\..\Sources\Repos\KursWalter\KursWalter.WpfClient\KursWalter.WpfClient.csproj", "{194956E9-86B2-4A43-A685-178B07476603}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{194956E9-86B2-4A43-A685-178B07476603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{194956E9-86B2-4A43-A685-178B07476603}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{194956E9-86B2-4A43-A685-178B07476603}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{194956E9-86B2-4A43-A685-178B07476603}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C8CFBA2-F88D-4055-AC45-B289C11D82E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C8CFBA2-F88D-4055-AC45-B289C11D82E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C8CFBA2-F88D-4055-AC45-B289C11D82E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C8CFBA2-F88D-4055-AC45-B289C11D82E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{194956E9-86B2-4A43-A685-178B07476603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{194956E9-86B2-4A43-A685-178B07476603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{194956E9-86B2-4A43-A685-178B07476603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{194956E9-86B2-4A43-A685-178B07476603}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
