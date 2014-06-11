@@ -8,9 +8,9 @@ namespace Kurswalter.Core.Interfaces
 {
     public interface ICourse
     {
-        public string CourseName{ get ;}
-        public List<IDateAndPlace> Happenings { get; }
-        public void addHappening(IDateAndPlace newDate);
-        public bool AreOverlapping(ICourse other);
+        string CourseName{ get ;}
+        List<IDateAndPlace> Happenings { get; }
+        void addHappening(IDateAndPlace newDate);
+        bool AreOverlapping(ICourse other);
     }
 }
