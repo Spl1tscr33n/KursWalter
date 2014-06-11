@@ -15,7 +15,7 @@ namespace Kurswalter.Core.Interfaces
          string fullName();
          DateTime? BirthDay { get; set; }
          string EMailAdress { get; set; }
-         UserArt kindOfUser { get;}
+         string kindOfUser { get;}
          bool chanceKindOfUser(UserArt client, UserArt shouldBe);
          List<ICourse> Courses { get; }
          void AddCourse(ICourse newCourse);
