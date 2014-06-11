@@ -10,46 +10,50 @@ namespace KursWalter.Persistence
 {
     class DBConnection : IDBConnection
     {
-        private MySqlConnection _connection = null;
-        protected string _connectionString;
+        MySqlConnection conn = null;
+        protected string connectionString;
         private bool _isConnected = false;
-        private string _ErrorMessage = null;
 
-        public bool IsConnected { get; }
-        public string ErrorMessage { get; }
-        public MySqlConnection Connection { get; }
-
-        public bool Connect(string host, string db_name, string user, string password)
+        public bool IsConnected
+        {
+            get
+            {
+                return _isConnected;
+            }
+        }
+        public DBConnection(string host, string db_name, string user, string password)
         {
             if ((host == null) || (db_name == null) || (user == null) || (password == null))
             {
                 throw new ArgumentNullException();
             }
-            _connection = new MySqlConnection("Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";");
+            connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+        }
+
+        public string connect()
+        {
+            string ret = "";
+            conn = new MySqlConnection(connectionString);
             try
             {
-                _connection.Open();
-                if (_connection.Ping())
-                {
-                    _isConnected = true;
-                }
+                conn.Open();
+                _isConnected = true;
+                ret = "Mysql version: " + conn.ServerVersion;
             }
             catch (MySqlException ex)
             {
-                _ErrorMessage = ex.Message;
-                _isConnected = false;
-                _connection.Close();
-                _connection.Dispose();
-                return false;
+                ret += ex.Message;
+                conn.Close();
+                conn.Dispose();
             }
-            return true;
+            return ret;
         }
 
         public void disconnect()
         {
             _isConnected = false;
-            _connection.Close();
-            _connection.Dispose();
+            conn.Close();
+            conn.Dispose();
         }
     }
 }
