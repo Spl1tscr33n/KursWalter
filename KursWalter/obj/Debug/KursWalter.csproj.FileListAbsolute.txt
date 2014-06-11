@@ -1,0 +1,13 @@
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\bin\Debug\KursWalter.exe.config
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\bin\Debug\KursWalter.exe
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\bin\Debug\KursWalter.pdb
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\obj\Debug\KursWalter.csprojResolveAssemblyReference.cache
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\obj\Debug\MainWindow.baml
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\obj\Debug\MainWindow.g.cs
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\obj\Debug\App.g.cs
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\obj\Debug\KursWalter_MarkupCompile.cache
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\obj\Debug\KursWalter.g.resources
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\obj\Debug\KursWalter.Properties.Resources.resources
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\obj\Debug\KursWalter.csproj.GenerateResource.Cache
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\obj\Debug\KursWalter.exe
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter\obj\Debug\KursWalter.pdb

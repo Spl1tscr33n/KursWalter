@@ -1,0 +1,15 @@
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\Kurswalter.Core.dll.config
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\Kurswalter.Core.dll
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\Kurswalter.Core.pdb
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\EntityFramework.dll
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\MySql.Data.Entity.EF5.dll
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\EntityFramework.xml
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\bin\Debug\EntityFramework.SqlServerCompact.xml
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\obj\Debug\Kurswalter.Core.csprojResolveAssemblyReference.cache
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\obj\Debug\Kurswalter.Core.dll
+C:\Users\Andreas\Source\Repos\KursWalter\Kurswalter.Core\obj\Debug\Kurswalter.Core.pdb

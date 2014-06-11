@@ -1,0 +1,2 @@
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter.WpfClient\bin\Debug\KursWalter.WpfClient.exe.config
+C:\Users\Andreas\Source\Repos\KursWalter\KursWalter.WpfClient\obj\Debug\KursWalter.WpfClient.csprojResolveAssemblyReference.cache
