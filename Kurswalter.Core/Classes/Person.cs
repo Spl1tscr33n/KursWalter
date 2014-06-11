@@ -10,6 +10,15 @@ namespace Kurswalter.Core.Classes
 {
     public class Person : IPerson
     {
+        public string Title
+        {
+            get { return Title; }
+            set
+            {
+                if (value != null)
+                    Title = value;
+            }
+        }
         public string TelNum
         {
             get { return TelNum; }
