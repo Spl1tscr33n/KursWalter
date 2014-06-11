@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kurswalter.Core", "..\Kurswalter.Core\Kurswalter.Core.csproj", "{1C8CFBA2-F88D-4055-AC45-B289C11D82E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursWalter.WpfClient", "KursWalter.WpfClient.csproj", "{194956E9-86B2-4A43-A685-178B07476603}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursWalter.WpfClient", "..\..\..\Sources\Repos\KursWalter\KursWalter.WpfClient\KursWalter.WpfClient.csproj", "{194956E9-86B2-4A43-A685-178B07476603}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
