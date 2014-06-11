@@ -75,6 +75,7 @@
     <Compile Include="Enums\UserArt.cs" />
     <Compile Include="Interfaces\ICourse.cs" />
     <Compile Include="Interfaces\IDateAndPlace.cs" />
+    <Compile Include="Interfaces\IDBConnection.cs" />
     <Compile Include="Interfaces\IPerson.cs" />
     <Compile Include="Persistence\DBConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

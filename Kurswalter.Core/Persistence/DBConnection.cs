@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kurswalter.Core.Interfaces;
 
 namespace KursWalter.Persistence
 {
-    class DBConnection
+    class DBConnection : IDBConnection
     {
         MySqlConnection conn = null;
         protected string connectionString;
