@@ -1,1 +1,3 @@
 D:\1 - Uni\Semester II\PG2\Workspace\Kurswalter\KursWalter.WpfClient\bin\Debug\KursWalter.WpfClient.exe.config
+D:\1 - Uni\Semester II\PG2\Workspace\Kurswalter\KursWalter.WpfClient\obj\Debug\KursWalter.WpfClient.exe
+D:\1 - Uni\Semester II\PG2\Workspace\Kurswalter\KursWalter.WpfClient\obj\Debug\KursWalter.WpfClient.pdb
