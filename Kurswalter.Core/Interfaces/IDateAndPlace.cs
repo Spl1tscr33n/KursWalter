@@ -9,8 +9,8 @@ namespace Kurswalter.Core.Interfaces
 {
     public interface IDateAndPlace
     {
-        public DateTime? Date{ get; }
-        public string Place{ get;}
-        public bool Equals(DateAndPlace other);
+         DateTime? Date{ get; }
+         string Place{ get;}
+         bool Equals(DateAndPlace other);
     }
 }
