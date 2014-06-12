@@ -8,9 +8,9 @@ namespace Kurswalter.Core.Interfaces
 {
     public interface IModifyDatabase
     {
-        string ErrorMessage;
-        bool AddUser( IPerson person);
-        bool DeleteUser( IPerson person);
-        bool ModifyUser(IPerson person);
+        string ErrorMessage { get; }
+        bool AddUser( IPerson person );
+        bool DeleteUser( IPerson person );
+        bool ModifyUser(IPerson person );
     }
 }
