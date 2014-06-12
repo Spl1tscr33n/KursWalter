@@ -10,50 +10,66 @@ namespace KursWalter.Persistence
 {
     class DBConnection : IDBConnection
     {
-        MySqlConnection conn = null;
-        protected string connectionString;
+        protected MySqlConnection _conn = null;
+        protected string _connectionString = null;
         private bool _isConnected = false;
-
-        public bool IsConnected
-        {
-            get
-            {
-                return _isConnected;
-            }
-        }
+        private string _errorMessage = null;
+        public bool IsConnected { get; }
+        public string ErrorMessage { get; }
+        public DBConnection() { }
         public DBConnection(string host, string db_name, string user, string password)
         {
             if ((host == null) || (db_name == null) || (user == null) || (password == null))
             {
                 throw new ArgumentNullException();
             }
-            connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+            _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+        }
+        public bool Connect(string host, string db_name, string user, string password)
+        {
+            if ((host == null) || (db_name == null) || (user == null) || (password == null))
+            {
+                throw new ArgumentNullException();
+            }
+            return Connect("Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";");
         }
 
-        public string connect()
+        public bool Connect()
         {
-            string ret = "";
-            conn = new MySqlConnection(connectionString);
+            if (_connectionString == null)
+                throw new ArgumentNullException();
+            else
+                return Connect(_connectionString);
+        }
+        public bool Connect(string ConnectionString)
+        {
+            if (_connectionString == null)
+                throw new ArgumentNullException();
+            _conn = new MySqlConnection(ConnectionString);
             try
             {
-                conn.Open();
-                _isConnected = true;
-                ret = "Mysql version: " + conn.ServerVersion;
+                _conn.Open();
+                if (_conn.Ping())
+                {
+                    _isConnected = true;
+                }
+
             }
             catch (MySqlException ex)
             {
-                ret += ex.Message;
-                conn.Close();
-                conn.Dispose();
+                _isConnected = false;
+                _conn.Close();
+                _conn.Dispose();
+                _errorMessage = ex.Message;
+                return false;
             }
-            return ret;
+            return true;
         }
-
         public void disconnect()
         {
             _isConnected = false;
-            conn.Close();
-            conn.Dispose();
+            _conn.Close();
+            _conn.Dispose();
         }
     }
 }
