@@ -9,16 +9,15 @@ namespace Kurswalter.Core.Interfaces
 {
     public interface IPerson
     {
-        string TelNum { get; set; }
-        string FirstName { get; set; }
-        string SecondName { get; set; }
-        string fullName();
-        DateTime? BirthDay { get; set; }
-        string Title { get; set; }
-        string EMailAdress { get; set; }
-        UserArt kindOfUser { get;}
-        bool chanceKindOfUser(UserArt client, UserArt shouldBe);
-        List<ICourse> Courses { get; }
-        void AddCourse(ICourse newCourse);
+         string TelNum { get; set; }
+         string FirstName { get; set; }
+         string SecondName { get; set; }
+         string fullName();
+         DateTime? BirthDay { get; set; }
+         string EMailAdress { get; set; }
+         string kindOfUser { get;}
+         bool chanceKindOfUser(UserArt client, UserArt shouldBe);
+         List<ICourse> Courses { get; }
+         void AddCourse(ICourse newCourse);
     }
 }
