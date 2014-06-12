@@ -11,7 +11,7 @@ namespace Kurswalter.Core.Interfaces
     {
         bool _isConnected { get; }
         //DBConnection(string host, string db_name, string user, string password);
-        bool Connect();
+        bool Connect(string host, string db_name, string user, string password);
         void Disconnect();
     }
 }

@@ -65,7 +65,7 @@ namespace KursWalter.Persistence
             }
             return true;
         }
-        public void disconnect()
+        public void Disconnect()
         {
             _isConnected = false;
             _conn.Close();
