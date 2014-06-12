@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Kurswalter.Core.Interfaces;
+using MySql.Data.MySqlClient;
 
 namespace Kurswalter.Core.Interfaces
 {
     public interface IDBConnection
     {
-        bool _isConnected { get; }
+        MySqlConnection Connection { get; }
+        bool IsConnected { get; }
+        string ErrorMessage { get; }
         //DBConnection(string host, string db_name, string user, string password);
         bool Connect(string host, string db_name, string user, string password);
         void Disconnect();

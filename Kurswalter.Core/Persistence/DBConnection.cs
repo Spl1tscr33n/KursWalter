@@ -8,12 +8,13 @@ using Kurswalter.Core.Interfaces;
 
 namespace KursWalter.Persistence
 {
-    class DBConnection : IDBConnection
+    public class DBConnection : IDBConnection
     {
-        protected MySqlConnection _conn = null;
-        protected string _connectionString = null;
+        private MySqlConnection _conn = null;
+        private string _connectionString = null;
         private bool _isConnected = false;
         private string _errorMessage = null;
+        private MySqlConnection Connection { get;  }
         public bool IsConnected { get; }
         public string ErrorMessage { get; }
         public DBConnection() { }
