@@ -5,32 +5,36 @@ using System.Text;
 using System.Threading.Tasks;
 using Kurswalter.Core.Interfaces;
 using Kurswalter.Core.Enums;
+using System.Security;
+using System.Net.Mail;
 
 namespace Kurswalter.Core.Classes
 {
     public class Person : IPerson
     {
-        public string TelNum
-        {
-            get { return TelNum; }
-            set
-            {
-                if (value != null)
-                    TelNum = value;
-            }
-        }
-        public Person ()
-        {
-            _id = IDGEN;
-            IDGEN++;
-
-        }
-        private static int IDGEN = 1;
+        //private static int IDGEN = 1; //brauch ma nicht so viel ich weis
         private readonly int _id;
         public int ID
         {
             get { return _id; }
         }
+
+        public Person()
+        {
+            //_id = IDGEN;
+            //IDGEN++;
+        }
+
+        public string Username
+        {
+            get { return Username; }
+            set
+            {
+                if (value != null)
+                    Username = value;
+            }
+        }
+
         //todo: dafür sorgen, das nur erlaubte namen eingetragen werden, genauso wie telefonnummer und so... entweder mit spezeillen klassen oder überprüfungen
         public string FirstName
         {
@@ -51,9 +55,40 @@ namespace Kurswalter.Core.Classes
                     SecondName = value;
             }
         }
-        public string fullName ()
+        public string fullName()
         {
             return FirstName + " " + SecondName;
+        }
+
+        public string Title
+        {
+            get { return Title; }
+            set
+            {
+                if (value != null)
+                    Title = value;
+            }
+        }
+
+        //hilfe für wfp http://stackoverflow.com/questions/2978348/wpf-password-box-into-a-securestring-in-c-sharp
+        public SecureString Password
+        {
+            get { return Password; }
+            set
+            {
+                if (value != null)
+                    Password = value;
+            }
+        }
+
+        public MailAddress EMailAdress       //todo: vllt über email-klasse
+        {
+            get { return EMailAdress; }
+            set
+            {
+                if (value != null)
+                    EMailAdress = value;
+            }
         }
 
         public DateTime? BirthDay
@@ -65,16 +100,7 @@ namespace Kurswalter.Core.Classes
                     BirthDay = value;
             }
         }
-        public string EMailAdress       //todo: vllt über email-klasse
-        {
-            get { return EMailAdress;}
-            set
-            {
-                if (value != null)
-                    EMailAdress = value;
-            }
-        }
-
+        
         private UserArt _kindOfUser = UserArt.Guest;
         public UserArt kindOfUser     
         {
