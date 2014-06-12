@@ -9,8 +9,10 @@ namespace Kurswalter.Core.Interfaces
 {
     public interface IDBConnection
     {
-        bool _isConnected { get; }
-        //DBConnection(string host, string db_name, string user, string password);
-        public string connect();
+        bool IsConnected{get;}
+
+        string connect();
+
+        void disconnect();
     }
 }
