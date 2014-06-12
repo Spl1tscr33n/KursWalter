@@ -14,9 +14,26 @@ namespace KursWalter.Persistence
         private string _connectionString = null;
         private bool _isConnected = false;
         private string _errorMessage = null;
-        private MySqlConnection Connection { get;  }
-        public bool IsConnected { get; }
-        public string ErrorMessage { get; }
+        public MySqlConnection Connection
+        {
+            get
+            {
+                return _conn;
+            }
+        }
+        public bool IsConnected
+        {
+            get
+            {
+                return _isConnected;
+            }
+        }
+        public string ErrorMessage { 
+            get
+            {
+                return _errorMessage;
+            }
+        }
         public DBConnection() { }
         public DBConnection(string host, string db_name, string user, string password)
         {
