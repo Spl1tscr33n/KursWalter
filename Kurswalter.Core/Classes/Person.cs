@@ -136,17 +136,17 @@ namespace Kurswalter.Core.Classes
             return retVal;
         }
 
-        private List<ICourse> _personalCourses;
-        public List<ICourse> Courses
+        private List<IClass> _personalClasses;
+        public List<IClass> Classes
         {
-            get { return _personalCourses; }
+            get { return _personalClasses; }
         }
-        public void AddCourse (ICourse newCourse)
+        public void AddClass (IClass newClass)
         {
-            if (newCourse == null)
-                throw new ArgumentNullException("NewCourse");
+            if (newClass == null)
+                throw new ArgumentNullException("NewClass");
             else
-                _personalCourses.Add(newCourse);
+                _personalClasses.Add(newClass);
         }
     }
 }

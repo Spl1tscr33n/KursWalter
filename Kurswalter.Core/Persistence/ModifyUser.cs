@@ -27,13 +27,6 @@ namespace Kurswalter.Core.Persistence
         public bool AddUser(IPerson person)
         {
             //Here we'll use the saved Connection
-                   /* username char(20) constraint detail unique,
-                   first_name char(40),
-                   last_name char(40),
-                   sex char(5),
-                   title char(20),
-                   email char(254),
-                   password char(128),*/
             string cmd = @"INSERT persons VALUES(" 
                             + person.UserName + ", "
                             + person.FirstName + ", "

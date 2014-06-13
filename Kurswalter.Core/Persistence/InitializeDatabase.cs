@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 /***
  * This class uses a Database which has to be created by the user manually for practical reasons
- * it creates the tables for the course management
+ * it creates the tables for the class management
 ***/
 
 namespace Kurswalter.Core.Persistence
 {
     public class InitializeDatabase
     {
-        private IDBConnection _connection;
         private MySqlCommand cmd;
         private readonly string table_persons =
             @"CREATE TABLE IF NOT EXISTS persons
@@ -30,11 +29,11 @@ namespace Kurswalter.Core.Persistence
                     password CHAR(128),
                     UNIQUE(id)
                 );";
-        private readonly string table_courses =
-            @"CREATE TABLE IF NOT EXISTS courses
+        private readonly string table_classes =
+            @"CREATE TABLE IF NOT EXISTS classes
                 ( 
                     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                    coursename CHAR(50),
+                    classname CHAR(50),
                     room CHAR(20),
                     time DATETIME,
                     content_short TEXT(140),
@@ -52,7 +51,7 @@ namespace Kurswalter.Core.Persistence
         {
             cmd = new MySqlCommand(table_persons, Connection.Connection);
             cmd.ExecuteNonQuery();
-            cmd = new MySqlCommand(table_courses, Connection.Connection);
+            cmd = new MySqlCommand(table_classes, Connection.Connection);
             cmd.ExecuteNonQuery();
             return true;
         }
@@ -72,10 +71,10 @@ namespace Kurswalter.Core.Persistence
     )
  */
 
-/*create table courses
+/*create table classes
  *  ( 
  *  ID int constraint aab primary key,
- *  coursename char(50) constraint detail unique,
+ *  classname char(50) constraint detail unique,
  *  room char(20),
  *  
  *  REMIND THE DATETIME DATABASE ERRORS

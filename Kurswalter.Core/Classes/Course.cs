@@ -7,7 +7,7 @@ using Kurswalter.Core.Interfaces;
 
 namespace Kurswalter.Core.Classes
 {
-    public class Course : ICourse
+    public class Class : IClass
     {
         private string _dozent;
         private List<IPerson> _member;
@@ -18,12 +18,12 @@ namespace Kurswalter.Core.Classes
 
         private string _name;
 
-        public string CourseName
+        public string ClassName
         {
             get { return _name; }
         }
 
-        public Course (string Name, string dozent)
+        public Class (string Name, string dozent)
         {
             _name = Name;
             _dozent = dozent;
@@ -40,7 +40,7 @@ namespace Kurswalter.Core.Classes
             _happenings.Add(newDate);
         }
 
-        public bool AreOverlapping ( ICourse other)
+        public bool AreOverlapping ( IClass other)
         {
             bool retVal = false;
             foreach (var hap in this._happenings)

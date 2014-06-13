@@ -21,8 +21,8 @@ namespace Kurswalter.Core.Interfaces
         MailAddress EMailAdress { get; set; }
         UserArt kindOfUser { get;}
         bool chanceKindOfUser(UserArt client, UserArt shouldBe);
-        List<ICourse> Courses { get; }
-        void AddCourse(ICourse newCourse);
+        List<IClass> Classes { get; }
+        void AddClass(IClass newClass);
         string Sex { get; set; }
         string Title { get; set; }
         SecureString Password { get; set; }
