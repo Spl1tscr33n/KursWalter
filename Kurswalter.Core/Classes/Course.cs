@@ -74,7 +74,7 @@ namespace Kurswalter.Core.Courses
             }
         }
 
-        public string Dozent
+        public string Reader
         {
             get { return _dozent; }
         }

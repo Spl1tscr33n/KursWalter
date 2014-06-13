@@ -30,7 +30,7 @@ namespace Kurswalter.Core.Structs
             _place = place;
         }
 
-        public bool Equals ( DateAndPlace other)
+        public bool Equals ( IDateAndPlace other)
         {
             bool retVal = false;
             if (_date == other.Date && _place == other.Place)

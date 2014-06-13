@@ -36,8 +36,18 @@ namespace Kurswalter.Core.Persistence
                             + person.EMailAdress + ", "
                             + person.Password
                             + ");";
+
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
-            command.ExecuteNonQuery();
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                _errorMessage = ex.Message;
+                return false;
+            }
             return true;
         }
         public bool AddUser(IPerson person, IDBConnection connection) 
@@ -52,7 +62,15 @@ namespace Kurswalter.Core.Persistence
             //Here we'll use the saved Connection
             string cmd = "DELETE FROM persons WHERE id = " + person.ID + ";" ;
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
-            command.ExecuteNonQuery();
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                _errorMessage = ex.Message;
+                return false;
+            }
             return true;
         }
         public bool DeleteUser(IPerson person, IDBConnection connection) 
@@ -65,16 +83,26 @@ namespace Kurswalter.Core.Persistence
         public bool EditUser(IPerson person)
         {
             string cmd = @"UPDATE persons set username='" 
-                            + person.UserName + "'set first_name='" 
-                            + person.FirstName + "' set last_name='" 
-                            + person.LastName + "' set sex='"
-                            + person.Sex + "' set title='"
-                            + person.Title + "' set email'"
-                            + person.EMailAdress + "' set password='"
-                            + person.Password +
+                            + person.UserName       + "'set first_name='" 
+                            + person.FirstName      + "' set last_name='" 
+                            + person.LastName       + "' set sex='"
+                            + person.Sex            + "' set title='"
+                            + person.Title          + "' set email'"
+                            + person.EMailAdress    + "' set password='"
+                            + person.Password       +
                             " where id='" + person.ID + "';";
+
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
-            command.ExecuteNonQuery();
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                _errorMessage = ex.Message;
+                return false;
+            }
             return true;
         }
         public bool EditUser(IPerson person, IDBConnection connection) 

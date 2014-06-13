@@ -11,6 +11,6 @@ namespace Kurswalter.Core.Interfaces
     {
          DateTime? Date{ get; }
          string Place{ get;}
-         bool Equals(DateAndPlace other);
+         bool Equals(IDateAndPlace other);
     }
 }

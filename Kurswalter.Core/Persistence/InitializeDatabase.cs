@@ -15,9 +15,20 @@ namespace Kurswalter.Core.Persistence
 {
     public class InitializeDatabase
     {
+        private string _errorMesage = null;
         private MySqlCommand cmd;
+
+        public string ErrorMessage
+        {
+            get
+            {
+                return _errorMesage;
+            }
+        }
+
+        
         private readonly string table_persons =
-            @"CREATE TABLE IF NOT EXISTS persons
+            @"CREATE TABLE persons
                 ( 
                     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                     username CHAR(20),
@@ -30,11 +41,11 @@ namespace Kurswalter.Core.Persistence
                     UNIQUE(id)
                 );";
         private readonly string table_courses =
-            @"CREATE TABLE IF NOT EXISTS courses
+            @"CREATE TABLE courses
                 ( 
                     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                     coursename CHAR(50),
-                    room CHAR(20),
+                    room TEXT(1000),
                     time DATETIME,
                     content_short TEXT(140),
                     content_long TEXT(1000),
@@ -49,10 +60,22 @@ namespace Kurswalter.Core.Persistence
 
         public bool Init()
         {
-            cmd = new MySqlCommand(table_persons, Connection.Connection);
-            cmd.ExecuteNonQuery();
-            cmd = new MySqlCommand(table_courses, Connection.Connection);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd = new MySqlCommand("DROP TABLE persons IF EXISTS persons", Connection.Connection);
+                cmd.ExecuteNonQuery();
+                cmd = new MySqlCommand("DROP TABLE courses IF EXISTS courses", Connection.Connection);
+                cmd.ExecuteNonQuery();
+                cmd = new MySqlCommand(table_persons, Connection.Connection);
+                cmd.ExecuteNonQuery();
+                cmd = new MySqlCommand(table_courses, Connection.Connection);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                _errorMesage = ex.Message;
+                return false;
+            }
             return true;
         }
     }

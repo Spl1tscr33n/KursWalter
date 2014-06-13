@@ -76,11 +76,12 @@
     <Compile Include="Interfaces\ICourse.cs" />
     <Compile Include="Interfaces\IDateAndPlace.cs" />
     <Compile Include="Interfaces\IDBConnection.cs" />
-    <Compile Include="Interfaces\IModifyClass.cs" />
+    <Compile Include="Interfaces\IModifyCourse.cs" />
     <Compile Include="Interfaces\IModifyUser.cs" />
     <Compile Include="Interfaces\IPerson.cs" />
     <Compile Include="Persistence\DBConnection.cs" />
     <Compile Include="Persistence\InitializeDatabase.cs" />
+    <Compile Include="Persistence\ModifyCourse.cs" />
     <Compile Include="Persistence\ModifyUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\DateAndPlace.cs" />

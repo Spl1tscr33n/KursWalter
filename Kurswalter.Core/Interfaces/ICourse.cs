@@ -20,7 +20,7 @@ namespace Kurswalter.Core.Interfaces
 
         string LongContent{get; set;}
 
-        string Dozent{get;}
+        string Reader{get;}
 
         //vllt auch weglassen da über linq befhele filter bar
         List<IPerson> Member{get; }

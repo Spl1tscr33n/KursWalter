@@ -146,7 +146,7 @@ namespace Kurswalter.Core.Courses
             if (newCourse == null)
                 throw new ArgumentNullException("NewCourse");
             else
-                _personalCoursees.Add(newCourse);
+                _personalCourses.Add(newCourse);
         }
     }
 }
