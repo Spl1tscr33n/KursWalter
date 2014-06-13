@@ -11,7 +11,7 @@ namespace Kurswalter.Core.Interfaces
     {
         bool IsConnected{get;}
 
-        string connect();
+        bool connect();
 
         void disconnect();
     }

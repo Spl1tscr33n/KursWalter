@@ -18,6 +18,7 @@ namespace Kurswalter.Core.Classes
         {
             get { return _id; }
         }
+        public string TelNum { get; set; }
 
         public Person()
         {

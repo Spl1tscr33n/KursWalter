@@ -16,7 +16,7 @@ namespace Kurswalter.Core.Persistence
     public class InitializeDatabase
     {
         private IDBConnection _connection;
-        private MySqlCommand  = new MySqlCommand(strCreate, conDatabase);
+        private MySqlCommand cmd = new MySqlCommand(table_persons, _connection);
         private readonly string table_persons =
            @"CREATE TABLE persons
                 ( 
