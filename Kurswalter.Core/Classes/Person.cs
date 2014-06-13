@@ -12,31 +12,36 @@ namespace Kurswalter.Core.Classes
 {
     public class Person : IPerson
     {
-        //private static int IDGEN = 1; //brauch ma nicht so viel ich weis
-        private readonly int _id;
+        private static int _id = 1;
         public int ID
         {
             get { return _id; }
+            set
+            {
+                if (value == _id)
+                    ID = value;
+            }
         }
         public string TelNum { get; set; }
 
         public Person()
         {
-            //_id = IDGEN;
-            //IDGEN++;
+            _id++;
+            ID = _id;
         }
 
-        public string Username
+        public string UserName
         {
-            get { return Username; }
+            get { return UserName; }
             set
             {
                 if (value != null)
-                    Username = value;
+                    UserName = value;
             }
         }
 
         //todo: dafür sorgen, das nur erlaubte namen eingetragen werden, genauso wie telefonnummer und so... entweder mit spezeillen klassen oder überprüfungen
+        //Wir machen das per Freigabe vom Admin - Andi
         public string FirstName
         {
             get { return FirstName; }
@@ -47,18 +52,26 @@ namespace Kurswalter.Core.Classes
             }
         }
 
-        public string SecondName
+        public string LastName
         {
-            get { return SecondName; }
+            get { return LastName; }
             set
             {
                 if (value != null)
-                    SecondName = value;
+                    LastName = value;
             }
         }
         public string fullName()
         {
-            return FirstName + " " + SecondName;
+            return FirstName + " " + LastName;
+        }
+        public string Sex {
+            get { return Sex; }
+            set
+            {
+                if (value != null)
+                    Sex = value;
+            }
         }
 
         public string Title

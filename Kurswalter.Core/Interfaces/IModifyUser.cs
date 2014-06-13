@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Kurswalter.Core.Interfaces
 {
-    public interface IModifyDatabase
+    public interface IModifyUser
     {
         string ErrorMessage { get; }
         bool AddUser( IPerson person );
         bool DeleteUser( IPerson person );
-        bool ModifyUser(IPerson person );
+        bool EditUser(IPerson person );
     }
 }

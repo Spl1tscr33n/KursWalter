@@ -10,6 +10,7 @@ namespace KursWalter.Persistence
 {
     public class DBConnection : IDBConnection
     {
+        /*var Mysqlconnection = new DBConnection("localhost", "Kurswalter", "root", "1DDf33slnH?");*/
         private MySqlConnection _conn = null;
         private string _connectionString = null;
         private bool _isConnected = false;

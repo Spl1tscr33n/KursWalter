@@ -16,11 +16,11 @@ namespace Kurswalter.Core.Persistence
     public class InitializeDatabase
     {
         private IDBConnection _connection;
-        private MySqlCommand cmd = new MySqlCommand(table_persons, _connection);
+        private MySqlCommand cmd;
         private readonly string table_persons =
            @"CREATE TABLE persons
                 ( 
-                   ID int constraint aaa primary key,
+                   id int constraint aaa primary key,
                    username char(20) constraint detail unique,
                    first_name char(40),
                    last_name char(40),
@@ -32,7 +32,7 @@ namespace Kurswalter.Core.Persistence
         private readonly string table_courses =
             @"CREATE TABLE courses
                 ( 
-                   ID int constraint aab primary key,
+                   id int constraint aab primary key,
                    coursename char(50) constraint detail unique,
                    room char(20),
                    time datetime,
@@ -45,10 +45,18 @@ namespace Kurswalter.Core.Persistence
         {
             Connection = connection;
         }
-        
+
+        public bool Init()
+        {
+            cmd = new MySqlCommand(table_persons, Connection.Connection);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand(table_courses, Connection.Connection);
+            cmd.ExecuteNonQuery();
+            return true;
+        }
     }
 }
-/*http://www.functionx.com/mysqlnet/csharp/Lesson05.htm*/
+/*http://www.functionx.com/mysqlnet/csharp/Lesson05.htm */
 /*create table persons
  *  ( 
  *  ID int constraint aaa primary key,

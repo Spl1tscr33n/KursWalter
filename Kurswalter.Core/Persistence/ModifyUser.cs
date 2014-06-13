@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace Kurswalter.Core.Persistence
 {
-    public class ModifyDatabase : IModifyDatabase
+    public class ModifyUser : IModifyUser
     {
         private string _errorMessage = null;
         public IDBConnection Connection { get; set; }
@@ -19,14 +19,30 @@ namespace Kurswalter.Core.Persistence
                 return _errorMessage;
             }
         }
-        public ModifyDatabase() { }
-        public ModifyDatabase(IDBConnection connection)
+        public ModifyUser() { }
+        public ModifyUser(IDBConnection connection)
         {
             Connection = connection;
         }
         public bool AddUser(IPerson person)
         {
             //Here we'll use the saved Connection
+                   /* username char(20) constraint detail unique,
+                   first_name char(40),
+                   last_name char(40),
+                   sex char(5),
+                   title char(20),
+                   email char(254),
+                   password char(128),*/
+            string cmd = @"INSERT persons VALUES(" 
+                            + person.UserName + ", "
+                            + person.FirstName + ", "
+                            + person.LastName + ", "
+                            + person.Sex + ", "
+                            + person.Title + ", "
+                            + person.EMailAdress + ", "
+                            + person.Password
+                            + ");";
             return true;
         }
         public bool AddUser(IPerson person, IDBConnection connection) 
@@ -39,6 +55,7 @@ namespace Kurswalter.Core.Persistence
         public bool DeleteUser(IPerson person) 
         {
             //Here we'll use the saved Connection
+            string cmd = "DELETE FROM persons WHERE username = " + person.ID + ";" ;
             return true;
         }
         public bool DeleteUser(IPerson person, IDBConnection connection) 
@@ -48,16 +65,16 @@ namespace Kurswalter.Core.Persistence
             DeleteUser(person);
             return true;
         }
-        public bool ModifyUser(IPerson person)
+        public bool EditUser(IPerson person)
         {
             //Here we'll use the saved Connection
             return true;
         }
-        public bool ModifyUser(IPerson person, IDBConnection connection) 
+        public bool EditUser(IPerson person, IDBConnection connection) 
         {
             //Here we'll use the given connection
             Connection = connection;
-            ModifyUser(person);            
+            EditUser(person);            
             return true;
         }
     }
