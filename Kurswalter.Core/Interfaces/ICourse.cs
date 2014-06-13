@@ -22,7 +22,6 @@ namespace Kurswalter.Core.Interfaces
 
         string Dozent{get;}
 
-
         //vllt auch weglassen da über linq befhele filter bar
         List<IPerson> Member{get; }
         void AddMember(IPerson person);
