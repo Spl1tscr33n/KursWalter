@@ -48,7 +48,7 @@ namespace Kurswalter.Core.Persistence
         
     }
 }
-
+/*http://www.functionx.com/mysqlnet/csharp/Lesson05.htm*/
 /*create table persons
  *  ( 
  *  ID int constraint aaa primary key,
