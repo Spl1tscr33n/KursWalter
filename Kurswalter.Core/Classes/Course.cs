@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Kurswalter.Core.Interfaces;
 
-namespace Kurswalter.Core.Classes
+namespace Kurswalter.Core.Courses
 {
-    public class Class : IClass
+    public class Course : ICourse
     {
         private string _dozent;
         private List<IPerson> _member;
@@ -18,12 +18,12 @@ namespace Kurswalter.Core.Classes
 
         private string _name;
 
-        public string ClassName
+        public string CourseName
         {
             get { return _name; }
         }
 
-        public Class (string Name, string dozent)
+        public Course (string Name, string dozent)
         {
             _name = Name;
             _dozent = dozent;
@@ -40,7 +40,7 @@ namespace Kurswalter.Core.Classes
             _happenings.Add(newDate);
         }
 
-        public bool AreOverlapping ( IClass other)
+        public bool AreOverlapping ( ICourse other)
         {
             bool retVal = false;
             foreach (var hap in this._happenings)

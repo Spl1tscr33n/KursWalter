@@ -8,7 +8,7 @@ using Kurswalter.Core.Enums;
 using System.Security;
 using System.Net.Mail;
 
-namespace Kurswalter.Core.Classes
+namespace Kurswalter.Core.Courses
 {
     public class Person : IPerson
     {
@@ -136,17 +136,17 @@ namespace Kurswalter.Core.Classes
             return retVal;
         }
 
-        private List<IClass> _personalClasses;
-        public List<IClass> Classes
+        private List<ICourse> _personalCourses;
+        public List<ICourse> Courses
         {
-            get { return _personalClasses; }
+            get { return _personalCourses; }
         }
-        public void AddClass (IClass newClass)
+        public void AddCourse (ICourse newCourse)
         {
-            if (newClass == null)
-                throw new ArgumentNullException("NewClass");
+            if (newCourse == null)
+                throw new ArgumentNullException("NewCourse");
             else
-                _personalClasses.Add(newClass);
+                _personalCoursees.Add(newCourse);
         }
     }
 }

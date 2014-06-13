@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Kurswalter.Core.Interfaces
 {
-    public interface IClass
+    public interface ICourse
     {
-        int ID{get;}
+        int ID {get;}
 
-        string ClassName{get;}
+        string CourseName{get;}
         List<IDateAndPlace> Happenings{get;}
         void addHappening(IDateAndPlace newDate);
 
-        bool AreOverlapping(IClass other);
+        bool AreOverlapping(ICourse other);
 
         string ShortContent{get;set;}
 
