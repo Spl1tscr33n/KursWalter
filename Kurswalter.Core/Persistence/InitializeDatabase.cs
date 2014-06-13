@@ -18,27 +18,29 @@ namespace Kurswalter.Core.Persistence
         private IDBConnection _connection;
         private MySqlCommand cmd;
         private readonly string table_persons =
-           @"CREATE TABLE persons
+            @"CREATE TABLE IF NOT EXISTS persons
                 ( 
-                   id int constraint aaa primary key,
-                   username char(20) constraint detail unique,
-                   first_name char(40),
-                   last_name char(40),
-                   sex char(5),
-                   title char(20),
-                   email char(254),
-                   password char(128),
+                    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                    username CHAR(20),
+                    first_name CHAR(40),
+                    last_name CHAR(40),
+                    sex CHAR(5),
+                    title CHAR(20),
+                    email CHAR(254),
+                    password CHAR(128),
+                    UNIQUE(id)
                 );";
         private readonly string table_courses =
-            @"CREATE TABLE courses
+            @"CREATE TABLE IF NOT EXISTS courses
                 ( 
-                   id int constraint aab primary key,
-                   coursename char(50) constraint detail unique,
-                   room char(20),
-                   time datetime,
-                   content_short char(140),
-                   content_long char(1000),
-                   reader char(80),
+                    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                    coursename CHAR(50),
+                    room CHAR(20),
+                    time DATETIME,
+                    content_short TEXT(140),
+                    content_long TEXT(1000),
+                    reader CHAR(80),
+                    UNIQUE(id)
                 );";
         public IDBConnection Connection { get; set; }
         public InitializeDatabase(IDBConnection connection)
