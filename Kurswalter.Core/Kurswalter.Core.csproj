@@ -79,6 +79,7 @@
     <Compile Include="Interfaces\IModifyDatabase.cs" />
     <Compile Include="Interfaces\IPerson.cs" />
     <Compile Include="Persistence\DBConnection.cs" />
+    <Compile Include="Persistence\InitializeDatabase.cs" />
     <Compile Include="Persistence\ModifyDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\DateAndPlace.cs" />

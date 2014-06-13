@@ -35,21 +35,28 @@ namespace KursWalter.Persistence
             }
         }
         public DBConnection() { }
-        public DBConnection(string host, string db_name, string user, string password)
+        public DBConnection(string host, string db_name, string port, string user, string password)
         {
             if ((host == null) || (db_name == null) || (user == null) || (password == null))
             {
                 throw new ArgumentNullException();
             }
-            _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+            if(port == null)
+                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+            else
+                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";Port=" + port + ";";
         }
-        public bool Connect(string host, string db_name, string user, string password)
+        public bool Connect(string host, string db_name, string port, string user, string password)
         {
             if ((host == null) || (db_name == null) || (user == null) || (password == null))
             {
                 throw new ArgumentNullException();
             }
-            return Connect("Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";");
+            if (port == null)
+                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+            else
+                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";Port=" + port + ";";
+            return Connect(_connectionString);
         }
 
         public bool Connect()
