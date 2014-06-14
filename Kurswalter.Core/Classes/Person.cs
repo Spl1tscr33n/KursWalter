@@ -12,7 +12,17 @@ namespace Kurswalter.Core.Courses
 {
     public class Person : IPerson
     {
-        private static int _id = 1;
+        private static int _id = 1; 
+        private string _UserName { get; set; }
+        private string _FirstName { get; set; }
+        private string _LastName { get; set; }
+        private string _Sex { get; set; }
+        private string _Title { get; set; }
+        private SecureString _Password { get; set; }
+        private MailAddress _EMailAdress { get; set; }
+        private DateTime? _BirthDay { get; set; }
+        private UserArt _kindOfUser = UserArt.Guest;
+        
         public int ID
         {
             get { return _id; }
@@ -22,8 +32,6 @@ namespace Kurswalter.Core.Courses
                     ID = value;
             }
         }
-        public string TelNum { get; set; }
-
         public Person()
         {
             _id++;
@@ -49,7 +57,7 @@ namespace Kurswalter.Core.Courses
             set
             {
                 if (value != null)
-                    UserName = value;
+                    _UserName = value;
             }
         }
 
@@ -60,7 +68,7 @@ namespace Kurswalter.Core.Courses
             set
             {
                 if (value != null)
-                    FirstName = value;
+                    _FirstName = value;
             }
         }
 
@@ -70,7 +78,7 @@ namespace Kurswalter.Core.Courses
             set
             {
                 if (value != null)
-                    LastName = value;
+                    _LastName = value;
             }
         }
         public string fullName()
@@ -83,7 +91,7 @@ namespace Kurswalter.Core.Courses
             set
             {
                 if (value != null)
-                    Sex = value;
+                    _Sex = value;
             }
         }
 
@@ -93,7 +101,7 @@ namespace Kurswalter.Core.Courses
             set
             {
                 if (value != null)
-                    Title = value;
+                    _Title = value;
             }
         }
 
@@ -104,7 +112,7 @@ namespace Kurswalter.Core.Courses
             set
             {
                 if (value != null)
-                    Password = value;
+                    _Password = value;
             }
         }
 
@@ -114,7 +122,7 @@ namespace Kurswalter.Core.Courses
             set
             {
                 if (value != null)
-                    EMailAdress = value;
+                    _EMailAdress = value;
             }
         }
 
@@ -124,11 +132,11 @@ namespace Kurswalter.Core.Courses
             set
             {
                 if (value != null)
-                    BirthDay = value;
+                    _BirthDay = value;
             }
         }
 
-        private UserArt _kindOfUser = UserArt.Guest;
+
         public UserArt kindOfUser
         {
             get { return _kindOfUser; }
@@ -161,5 +169,7 @@ namespace Kurswalter.Core.Courses
             else
                 _personalCourses.Add(newCourse);
         }
+
+
     }
 }
