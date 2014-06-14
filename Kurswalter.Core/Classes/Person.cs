@@ -12,33 +12,24 @@ namespace Kurswalter.Core.Courses
 {
     public class Person : IPerson
     {
-        private static int _id = 1; 
+        private static int _id = 1;
+        public int ID { get; set; }
         private string _UserName { get; set; }
         private string _FirstName { get; set; }
         private string _LastName { get; set; }
         private string _Sex { get; set; }
         private string _Title { get; set; }
-        private SecureString _Password { get; set; }
+        private string _Password { get; set; }
         private MailAddress _EMailAdress { get; set; }
         private DateTime? _BirthDay { get; set; }
         private UserArt _kindOfUser = UserArt.Guest;
-        
-        public int ID
-        {
-            get { return _id; }
-            set
-            {
-                if (value == _id)
-                    ID = value;
-            }
-        }
         public Person()
         {
             _id++;
             ID = _id;
         }
 
-        public Person(string username, string firstname, string lastname, string sex, string title, SecureString password, MailAddress emailaddy, DateTime date)
+        public Person(string username, string firstname, string lastname, string sex, string title, string password, MailAddress emailaddy, DateTime date)
             : this()
         {
             UserName = username;
@@ -53,7 +44,7 @@ namespace Kurswalter.Core.Courses
 
         public string UserName
         {
-            get { return UserName; }
+            get { return _UserName; }
             set
             {
                 if (value != null)
@@ -64,7 +55,7 @@ namespace Kurswalter.Core.Courses
         //todo: dafür sorgen, das nur erlaubte namen eingetragen werden, genauso wie telefonnummer und so... entweder mit spezeillen klassen oder überprüfungen
         public string FirstName
         {
-            get { return FirstName; }
+            get { return _FirstName; }
             set
             {
                 if (value != null)
@@ -74,7 +65,7 @@ namespace Kurswalter.Core.Courses
 
         public string LastName
         {
-            get { return LastName; }
+            get { return _LastName; }
             set
             {
                 if (value != null)
@@ -87,7 +78,7 @@ namespace Kurswalter.Core.Courses
         }
         public string Sex
         {
-            get { return Sex; }
+            get { return _Sex; }
             set
             {
                 if (value != null)
@@ -97,7 +88,7 @@ namespace Kurswalter.Core.Courses
 
         public string Title
         {
-            get { return Title; }
+            get { return _Title; }
             set
             {
                 if (value != null)
@@ -106,9 +97,9 @@ namespace Kurswalter.Core.Courses
         }
 
         //hilfe für wfp http://stackoverflow.com/questions/2978348/wpf-password-box-into-a-securestring-in-c-sharp
-        public SecureString Password
+        public string Password
         {
-            get { return Password; }
+            get { return _Password; }
             set
             {
                 if (value != null)
@@ -118,7 +109,7 @@ namespace Kurswalter.Core.Courses
 
         public MailAddress EMailAdress       //todo: vllt über email-klasse
         {
-            get { return EMailAdress; }
+            get { return _EMailAdress; }
             set
             {
                 if (value != null)
@@ -128,7 +119,7 @@ namespace Kurswalter.Core.Courses
 
         public DateTime? BirthDay
         {
-            get { return BirthDay; }
+            get { return _BirthDay; }
             set
             {
                 if (value != null)
@@ -169,7 +160,5 @@ namespace Kurswalter.Core.Courses
             else
                 _personalCourses.Add(newCourse);
         }
-
-
     }
 }

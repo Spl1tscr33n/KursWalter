@@ -24,7 +24,7 @@ namespace Kurswalter.Core.Interfaces
         void AddCourse(ICourse newCourse);
         string Sex { get; set; }
         string Title { get; set; }
-        SecureString Password { get; set; }
+        string Password { get; set; }
          
     }
 }

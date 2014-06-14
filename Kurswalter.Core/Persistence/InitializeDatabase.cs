@@ -26,7 +26,7 @@ namespace Kurswalter.Core.Persistence
             }
         }
 
-        
+//TODO: Add Fields like in the Interfaces described        
         private readonly string table_persons =
             @"CREATE TABLE persons
                 ( 

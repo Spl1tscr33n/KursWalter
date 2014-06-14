@@ -20,45 +20,56 @@ namespace Kurswalter.Core.Persistence
             }
         }
         public ModifyUser() { }
-        public ModifyUser(IDBConnection connection)
+        public ModifyUser(IDBConnection Connection)
         {
-            Connection = connection;
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
+            this.Connection = Connection;
         }
         public bool AddUser(IPerson person)
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             //Here we'll use the saved Connection
+            //TODO: Add Fields like in the Interfaces described        
             string cmd = @"INSERT persons VALUES(" 
-                            + person.UserName       + ", "
-                            + person.FirstName      + ", "
-                            + person.LastName       + ", "
-                            + person.Sex            + ", "
-                            + person.Title          + ", "
-                            + person.EMailAdress    + ", "
+                            + person.UserName                    + ", "
+                            + person.FirstName                   + ", "
+                            + person.LastName                    + ", "
+                            + person.Sex                         + ", "
+                            + person.Title                       + ", "
+                            + person.EMailAdress.ToString()      + ", "
                             + person.Password
                             + ");";
 
+
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
+
 
             try
             {
                 command.ExecuteNonQuery();
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 _errorMessage = ex.Message;
                 return false;
             }
             return true;
         }
-        public bool AddUser(IPerson person, IDBConnection connection) 
+        public bool AddUser(IPerson person, IDBConnection Connection) 
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             //Here we'll use the given connection
-            Connection = connection;
+            this.Connection = Connection;
             AddUser(person);
             return true;
         }
-        public bool DeleteUser(IPerson person) 
+        public bool DeleteUser(IPerson person)
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             //Here we'll use the saved Connection
             string cmd = "DELETE FROM persons WHERE id = " + person.ID + ";" ;
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
@@ -73,15 +84,19 @@ namespace Kurswalter.Core.Persistence
             }
             return true;
         }
-        public bool DeleteUser(IPerson person, IDBConnection connection) 
+        public bool DeleteUser(IPerson person, IDBConnection Connection) 
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             //Here we'll use the given connection
-            Connection = connection;
+            this.Connection = Connection;
             DeleteUser(person);
             return true;
         }
         public bool EditUser(IPerson person)
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             string cmd = @"UPDATE persons set username='" 
                             + person.UserName       + "'set first_name='" 
                             + person.FirstName      + "' set last_name='" 
@@ -105,10 +120,12 @@ namespace Kurswalter.Core.Persistence
             }
             return true;
         }
-        public bool EditUser(IPerson person, IDBConnection connection) 
+        public bool EditUser(IPerson person, IDBConnection Connection) 
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             //Here we'll use the given connection
-            Connection = connection;
+            this.Connection = Connection;
             EditUser(person);            
             return true;
         }

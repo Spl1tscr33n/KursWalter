@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Kurswalter.Core.Persistence
 {
-    class ModifyCourse
+    class ModifyCourse : IModifyCourse
     {
         private string _errorMessage = null;
         public IDBConnection Connection { get; set; }
-        string ErrorMessage 
+        public string ErrorMessage 
         { 
             get
             {
@@ -20,8 +20,10 @@ namespace Kurswalter.Core.Persistence
             }
         }
 
-        bool AddCourse(ICourse course)
+        public bool AddCourse(ICourse course)
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             string DatesAndPlaces = null;
             foreach(IDateAndPlace dnp in course.Happenings)
             {
@@ -31,6 +33,7 @@ namespace Kurswalter.Core.Persistence
                 DatesAndPlaces += ";;\n";
             }
             //Here we'll use the saved Connection
+            //TODO: Add Fields like in the Interfaces described        
             string cmd = @"INSERT courses VALUES("
                             + course.CourseName     + ", "
                             + DatesAndPlaces        + ", "
@@ -50,13 +53,17 @@ namespace Kurswalter.Core.Persistence
             }
             return true;
         }
-        bool AddCourse(ICourse course, IDBConnection connection)
+        public bool AddCourse(ICourse course, IDBConnection Connection)
         {
-            Connection = connection;
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
+            this.Connection = Connection;
             return AddCourse(course);
         }
-        bool DeleteCourse(ICourse course)
+        public bool DeleteCourse(ICourse course)
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             //Here we'll use the saved Connection
             string cmd = "DELETE FROM courses WHERE id = " + course.ID + ";";
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
@@ -71,13 +78,17 @@ namespace Kurswalter.Core.Persistence
             }
             return true;
         }
-        bool DeleteCourse(ICourse course, IDBConnection connection)
+        public bool DeleteCourse(ICourse course, IDBConnection Connection)
         {
-            Connection = connection;
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
+            this.Connection = Connection;
             return AddCourse(course);
         }
-        bool EditCourse(ICourse course)
+        public bool EditCourse(ICourse course)
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             string DatesAndPlaces = null;
             foreach(IDateAndPlace dnp in course.Happenings)
             {
@@ -106,9 +117,11 @@ namespace Kurswalter.Core.Persistence
             }
             return true;
         }
-        bool EditCourse(ICourse course, IDBConnection connection)
+        public bool EditCourse(ICourse course, IDBConnection Connection)
         {
-            Connection = connection;
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
+            this.Connection = Connection;
             return AddCourse(course);
         }
     }

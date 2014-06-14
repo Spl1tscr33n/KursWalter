@@ -9,8 +9,8 @@ namespace Kurswalter.Core.Interfaces
     interface IModifyCourse
     {
         string ErrorMessage { get; }
-        bool AddUser(IPerson person);
-        bool DeleteUser(IPerson person);
-        bool EditUser(IPerson person);
+        bool AddCourse(ICourse person);
+        bool DeleteCourse(ICourse person);
+        bool EditCourse(ICourse person);
     }
 }
