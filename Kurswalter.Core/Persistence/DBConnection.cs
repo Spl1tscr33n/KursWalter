@@ -8,12 +8,20 @@ using Kurswalter.Core.Interfaces;
 
 namespace KursWalter.Persistence
 {
-    class DBConnection : IDBConnection
+    public class DBConnection : IDBConnection
     {
-        MySqlConnection conn = null;
-        protected string connectionString;
+        /*var Mysqlconnection = new DBConnection("localhost", "Kurswalter", "root", "1DDf33slnH?");*/
+        private MySqlConnection _conn = null;
+        private string _connectionString = null;
         private bool _isConnected = false;
-
+        private string _errorMessage = null;
+        public MySqlConnection Connection
+        {
+            get
+            {
+                return _conn;
+            }
+        }
         public bool IsConnected
         {
             get
@@ -21,39 +29,73 @@ namespace KursWalter.Persistence
                 return _isConnected;
             }
         }
-        public DBConnection(string host, string db_name, string user, string password)
+        public string ErrorMessage { 
+            get
+            {
+                return _errorMessage;
+            }
+        }
+        public DBConnection() { }
+        public DBConnection(string host, string db_name, string port, string user, string password)
         {
             if ((host == null) || (db_name == null) || (user == null) || (password == null))
             {
                 throw new ArgumentNullException();
             }
-            connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+            if(port == null)
+                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+            else
+                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";Port=" + port + ";";
+        }
+        public bool Connect(string host, string db_name, string port, string user, string password)
+        {
+            if ((host == null) || (db_name == null) || (user == null) || (password == null))
+            {
+                throw new ArgumentNullException();
+            }
+            if (port == null)
+                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+            else
+                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";Port=" + port + ";";
+            return Connect(_connectionString);
         }
 
-        public string connect()
+        public bool Connect()
         {
-            string ret = "";
-            conn = new MySqlConnection(connectionString);
+            if (_connectionString == null)
+                throw new ArgumentNullException();
+            else
+                return Connect(_connectionString);
+        }
+        public bool Connect(string ConnectionString)
+        {
+            if (_connectionString == null)
+                throw new ArgumentNullException();
+            _conn = new MySqlConnection(ConnectionString);
             try
             {
-                conn.Open();
-                _isConnected = true;
-                ret = "Mysql version: " + conn.ServerVersion;
+                _conn.Open();
+                if (_conn.Ping())
+                {
+                    _isConnected = true;
+                }
+
             }
             catch (MySqlException ex)
             {
-                ret += ex.Message;
-                conn.Close();
-                conn.Dispose();
+                _isConnected = false;
+                _conn.Close();
+                _conn.Dispose();
+                _errorMessage = ex.Message;
+                return false;
             }
-            return ret;
+            return true;
         }
-
-        public void disconnect()
+        public void Disconnect()
         {
             _isConnected = false;
-            conn.Close();
-            conn.Dispose();
+            _conn.Close();
+            _conn.Dispose();
         }
     }
 }

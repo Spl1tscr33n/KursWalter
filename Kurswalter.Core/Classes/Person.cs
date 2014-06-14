@@ -5,32 +5,54 @@ using System.Text;
 using System.Threading.Tasks;
 using Kurswalter.Core.Interfaces;
 using Kurswalter.Core.Enums;
+using System.Security;
+using System.Net.Mail;
 
-namespace Kurswalter.Core.Classes
+namespace Kurswalter.Core.Courses
 {
     public class Person : IPerson
     {
-        public string TelNum
-        {
-            get { return TelNum; }
-            set
-            {
-                if (value != null)
-                    TelNum = value;
-            }
-        }
-        public Person ()
-        {
-            _id = IDGEN;
-            IDGEN++;
-
-        }
-        private static int IDGEN = 1;
-        private readonly int _id;
+        private static int _id = 1;
         public int ID
         {
             get { return _id; }
+            set
+            {
+                if (value == _id)
+                    ID = value;
+            }
         }
+        public string TelNum { get; set; }
+
+        public Person()
+        {
+            _id++;
+            ID = _id;
+        }
+
+        public Person(string username, string firstname, string lastname, string sex, string title, SecureString password, MailAddress emailaddy, DateTime date)
+            : this()
+        {
+            UserName = username;
+            FirstName = firstname;
+            LastName = lastname;
+            Sex = sex;
+            Title = title;
+            Password = password;
+            EMailAdress = emailaddy;
+            BirthDay = date;
+        }
+
+        public string UserName
+        {
+            get { return UserName; }
+            set
+            {
+                if (value != null)
+                    UserName = value;
+            }
+        }
+
         //todo: dafür sorgen, das nur erlaubte namen eingetragen werden, genauso wie telefonnummer und so... entweder mit spezeillen klassen oder überprüfungen
         public string FirstName
         {
@@ -42,32 +64,53 @@ namespace Kurswalter.Core.Classes
             }
         }
 
-        public string SecondName
+        public string LastName
         {
-            get { return SecondName; }
+            get { return LastName; }
             set
             {
                 if (value != null)
-                    SecondName = value;
+                    LastName = value;
             }
         }
-        public string fullName ()
+        public string fullName()
         {
-            return FirstName + " " + SecondName;
+            return FirstName + " " + LastName;
         }
-
-        public DateTime? BirthDay
+        public string Sex
         {
-            get { return BirthDay; }
-            set 
+            get { return Sex; }
+            set
             {
                 if (value != null)
-                    BirthDay = value;
+                    Sex = value;
             }
         }
-        public string EMailAdress       //todo: vllt über email-klasse
+
+        public string Title
         {
-            get { return EMailAdress;}
+            get { return Title; }
+            set
+            {
+                if (value != null)
+                    Title = value;
+            }
+        }
+
+        //hilfe für wfp http://stackoverflow.com/questions/2978348/wpf-password-box-into-a-securestring-in-c-sharp
+        public SecureString Password
+        {
+            get { return Password; }
+            set
+            {
+                if (value != null)
+                    Password = value;
+            }
+        }
+
+        public MailAddress EMailAdress       //todo: vllt über email-klasse
+        {
+            get { return EMailAdress; }
             set
             {
                 if (value != null)
@@ -75,13 +118,23 @@ namespace Kurswalter.Core.Classes
             }
         }
 
+        public DateTime? BirthDay
+        {
+            get { return BirthDay; }
+            set
+            {
+                if (value != null)
+                    BirthDay = value;
+            }
+        }
+
         private UserArt _kindOfUser = UserArt.Guest;
-        public UserArt kindOfUser     
+        public UserArt kindOfUser
         {
             get { return _kindOfUser; }
         }
 
-        public bool chanceKindOfUser (UserArt client, UserArt shouldBe)
+        public bool chanceKindOfUser(UserArt client, UserArt shouldBe)
         {
             bool retVal;
             if (client == UserArt.Admin)
@@ -101,7 +154,7 @@ namespace Kurswalter.Core.Classes
         {
             get { return _personalCourses; }
         }
-        public void AddCourse (ICourse newCourse)
+        public void AddCourse(ICourse newCourse)
         {
             if (newCourse == null)
                 throw new ArgumentNullException("NewCourse");

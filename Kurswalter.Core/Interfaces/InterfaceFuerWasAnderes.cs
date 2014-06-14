@@ -8,14 +8,13 @@ using MySql.Data.MySqlClient;
 
 namespace Kurswalter.Core.Interfaces
 {
-    public interface IDBConnection
+    interface InterfaceFuerWasAnderes
     {
-        bool IsConnected{get;}
         MySqlConnection Connection { get; }
+        bool IsConnected { get; }
         string ErrorMessage { get; }
-
-        bool Connect(string host, string db_name, string port, string user, string password);
-
+        //DBConnection(string host, string db_name, string user, string password);
+        bool Connect(string host, string db_name, string user, string password);
         void Disconnect();
     }
 }

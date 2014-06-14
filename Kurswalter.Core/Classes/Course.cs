@@ -5,29 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 using Kurswalter.Core.Interfaces;
 
-namespace Kurswalter.Core.Classes
+namespace Kurswalter.Core.Courses
 {
     public class Course : ICourse
     {
-        private string _name;
-        public Course (string Name)
+        private string _dozent;
+        private List<IPerson> _member;
+        public int ID
         {
-            _name = Name;
+            get { return ID; }
         }
+
+        private string _name;
+
         public string CourseName
         {
             get { return _name; }
         }
+
+        public Course (string Name, string dozent)
+        {
+            _name = Name;
+            _dozent = dozent;
+        }
+
         private List<IDateAndPlace> _happenings;  //plan ist sozusagen jedes mal wenn ein kurs ist diesen mit seinem platz einzutragen
         public List<IDateAndPlace> Happenings
         {
             get { return _happenings; }
         }
-        public void addHappening (IDateAndPlace newDate )
+        public void addHappening(IDateAndPlace newDate)
         {
             if (newDate == null) throw new ArgumentNullException("NoDateEntered");
             _happenings.Add(newDate);
         }
+
         public bool AreOverlapping ( ICourse other)
         {
             bool retVal = false;
@@ -40,6 +52,42 @@ namespace Kurswalter.Core.Classes
                 }
             }
                 return retVal;
+        }
+
+        public string ShortContent
+        {
+            get { return ShortContent; }
+            set
+            {
+                if (value != null)
+                    ShortContent = value;
+            }
+        }
+
+        public string LongContent
+        {
+            get { return LongContent; }
+            set
+            {
+                if (value != null)
+                    LongContent = value;
+            }
+        }
+
+        public string Reader
+        {
+            get { return _dozent; }
+        }
+
+
+        //vllt auch weglassen da über linq befhele filter bar
+        public List<IPerson> Member
+        {
+            get { return _member; }
+        }
+        public void AddMember (IPerson person)
+        {
+            _member.Add(person);
         }
     }
 }
