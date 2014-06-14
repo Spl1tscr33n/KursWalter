@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              
              mc:Ignorable="d" 
-             d:DesignHeight="160" d:DesignWidth="200"
+             d:DesignHeight="170" d:DesignWidth="200"
              Background="White">
     <UserControl.Resources>
         <Style x:Key="GridLabelStyle" TargetType="Label">
@@ -28,12 +28,14 @@
         <Style x:Key="LinkLabelStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="8"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0 0 0 5"/>
 
         </Style>
     </UserControl.Resources>
-    <Border MinWidth="179" BorderThickness="1" BorderBrush="Black">
+    <Border Margin="1" MinWidth="185" BorderThickness="1" BorderBrush="Black">
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -41,21 +43,23 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-
             </Grid.RowDefinitions>
 
-            <Label x:Name="lbUsername" Grid.Row="0" Content="Bentzername" Style="{StaticResource GridLabelStyle}"/>
-            <TextBox x:Name="tbUsername" Grid.Row="1" TextWrapping="Wrap" Style="{StaticResource InputControlStyle }"/>
+            <Button x:Name="btMinLogin" Content="5" FontFamily="Marlett" VerticalAlignment="Top" Click="btMinLogin_Click"/>
+            
+            <Label x:Name="lbUsername" Grid.Row="1" Content="Bentzername" Style="{StaticResource GridLabelStyle}"/>
+            <TextBox x:Name="tbUsername" Grid.Row="2" TextWrapping="Wrap" Style="{StaticResource InputControlStyle }"/>
 
-            <Label x:Name="blPassword" Grid.Row="2" Content="Passwort" Style="{StaticResource GridLabelStyle}"/>
-            <PasswordBox  x:Name="tbPassword" Grid.Row="3" ToolTip="Bitte Geben Sie ihr Passwort ein!" Style="{StaticResource InputControlStyle}"/>
+            <Label x:Name="blPassword" Grid.Row="3" Content="Passwort" Style="{StaticResource GridLabelStyle}"/>
+            <PasswordBox  x:Name="tbPassword" Grid.Row="4" ToolTip="Bitte Geben Sie ihr Passwort ein!" Style="{StaticResource InputControlStyle}"/>
 
-            <Button  x:Name="btLogin" Grid.Row="4" Content="Login" Style="{StaticResource DialogButtonStyle}"/>
+            <Button  x:Name="btLogin" Grid.Row="5" Content="Login" Style="{StaticResource DialogButtonStyle}"/>
 
 
-            <TextBlock x:Name="lbPwDontNow" Grid.Row="5"  Style="{StaticResource LinkLabelStyle}" ToolTip="Klicken Sie hier, falls Sie ihr Passwort vergessen haben.">
+            <TextBlock x:Name="lbPwDontNow" Grid.Row="6"  Style="{StaticResource LinkLabelStyle}" ToolTip="Klicken Sie hier, falls Sie ihr Passwort vergessen haben." MouseLeftButtonDown="lbPwDontNow_MouseLeftButtonDown" >
                 <Hyperlink> Passwort vergessen? </Hyperlink>
             </TextBlock>
+            
 
         </Grid>
     </Border>

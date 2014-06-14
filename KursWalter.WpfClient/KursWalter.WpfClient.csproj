@@ -116,6 +116,9 @@
     <Compile Include="UserControls\InfoFrameView.xaml.cs">
       <DependentUpon>InfoFrameView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UCPwDontNow.xaml.cs">
+      <DependentUpon>UCPwDontNow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCSearchBar.xaml.cs">
       <DependentUpon>UCSearchBar.xaml</DependentUpon>
     </Compile>
@@ -162,6 +165,10 @@
     <Page Include="Resources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UCPwDontNow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UCSearchBar.xaml">
       <SubType>Designer</SubType>

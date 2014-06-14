@@ -23,6 +23,27 @@ namespace KursWalter.WpfClient.UserControls
         public UCLoginPage()
         {
             InitializeComponent();
+            btMinLogin.Content = "5";
+        }
+
+        private void btMinLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.btMinLogin.Content.ToString() == "5")
+            {
+                this.btMinLogin.Content = "6";
+                UCLogin.Height = btMinLogin.ActualHeight;
+            }
+            else
+            {
+                this.btMinLogin.Content = "5";
+                UCLogin.Height = 160;
+            }
+
+        }
+
+        private void lbPwDontNow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+           
         }
     }
 }
