@@ -11,48 +11,45 @@ namespace Kurswalter.Core.Courses
     {
         private string _dozent;
         private List<IPerson> _member;
+        private DateTime _creationdate;
+        private string _name;
+        private List<IDateAndPlace> _happenings;
+        
+        
         public int ID
         {
             get { return ID; }
         }
-
-        private string _name;
+        public DateTime CreationDate { get; private set; }
 
         public string CourseName
         {
             get { return _name; }
         }
 
+        // ctor
         public Course (string Name, string dozent)
         {
             _name = Name;
             _dozent = dozent;
+            _creationdate = DateTime.Now;
+
         }
 
-        private List<IDateAndPlace> _happenings;  //plan ist sozusagen jedes mal wenn ein kurs ist diesen mit seinem platz einzutragen
+        //plan ist sozusagen jedes mal wenn ein kurs ist diesen mit seinem platz einzutragen
+          
         public List<IDateAndPlace> Happenings
         {
             get { return _happenings; }
         }
+
         public void addHappening(IDateAndPlace newDate)
         {
             if (newDate == null) throw new ArgumentNullException("NoDateEntered");
             _happenings.Add(newDate);
         }
 
-        public bool AreOverlapping ( ICourse other)
-        {
-            bool retVal = false;
-            foreach (var hap in this._happenings)
-            {
-                foreach (var othHap in other.Happenings)
-                {
-                    if (hap == othHap)
-                        retVal = true;
-                }
-            }
-                return retVal;
-        }
+       
 
         public string ShortContent
         {
@@ -88,6 +85,21 @@ namespace Kurswalter.Core.Courses
         public void AddMember (IPerson person)
         {
             _member.Add(person);
+        }
+
+        // functions
+        public bool AreOverlapping(ICourse other)
+        {
+            bool retVal = false;
+            foreach (var hap in this._happenings)
+            {
+                foreach (var othHap in other.Happenings)
+                {
+                    if (hap == othHap)
+                        retVal = true;
+                }
+            }
+            return retVal;
         }
     }
 }

@@ -22,5 +22,6 @@ namespace Kurswalter.Core.Classes
                                          };
             _courseList = defaultcourseList;
         }
+
     }
 }

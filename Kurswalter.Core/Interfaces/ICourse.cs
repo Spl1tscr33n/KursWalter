@@ -10,6 +10,8 @@ namespace Kurswalter.Core.Interfaces
     {
         int ID {get;}
 
+        DateTime CreationDate { get; }
+
         string CourseName{get;}
         List<IDateAndPlace> Happenings{get;}
         void addHappening(IDateAndPlace newDate);
