@@ -26,8 +26,9 @@ namespace Kurswalter.Core.Persistence
             foreach(IDateAndPlace dnp in course.Happenings)
             {
                 DatesAndPlaces += dnp.Date.ToString();
+                DatesAndPlaces += ";";
                 DatesAndPlaces += dnp.Place;
-                DatesAndPlaces += "\n";
+                DatesAndPlaces += ";;\n";
             }
             //Here we'll use the saved Connection
             string cmd = @"INSERT courses VALUES("
@@ -81,17 +82,18 @@ namespace Kurswalter.Core.Persistence
             foreach(IDateAndPlace dnp in course.Happenings)
             {
                 DatesAndPlaces += dnp.Date.ToString();
+                DatesAndPlaces += ";";
                 DatesAndPlaces += dnp.Place;
-                DatesAndPlaces += "\n";
+                DatesAndPlaces += ";;\n";
             }
-/*
+
             string cmd = @"UPDATE courses set username='"
                 + course.CourseName     + "' set coursename='"
                 + DatesAndPlaces        + "' set last_name='"
                 + course.ShortContent   + "' set sex='"
                 + course.LongContent    + "' set title='"
-                + course.Reader         + "' set email'" +
-                " where id='"           + course.ID + "';";
+                + course.Reader         + "' set email'"    +
+                " where id='"           + course.ID         + "';";
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
             try
             {
@@ -102,7 +104,6 @@ namespace Kurswalter.Core.Persistence
                 _errorMessage = ex.Message;
                 return false;
             }
- * */
             return true;
         }
         bool EditCourse(ICourse course, IDBConnection connection)

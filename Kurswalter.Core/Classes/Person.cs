@@ -30,6 +30,19 @@ namespace Kurswalter.Core.Courses
             ID = _id;
         }
 
+        public Person(string username, string firstname, string lastname, string sex, string title, SecureString password, MailAddress emailaddy, DateTime date)
+            : this()
+        {
+            UserName = username;
+            FirstName = firstname;
+            LastName = lastname;
+            Sex = sex;
+            Title = title;
+            Password = password;
+            EMailAdress = emailaddy;
+            BirthDay = date;
+        }
+
         public string UserName
         {
             get { return UserName; }
@@ -41,7 +54,6 @@ namespace Kurswalter.Core.Courses
         }
 
         //todo: dafür sorgen, das nur erlaubte namen eingetragen werden, genauso wie telefonnummer und so... entweder mit spezeillen klassen oder überprüfungen
-        //Wir machen das per Freigabe vom Admin - Andi
         public string FirstName
         {
             get { return FirstName; }
@@ -65,7 +77,8 @@ namespace Kurswalter.Core.Courses
         {
             return FirstName + " " + LastName;
         }
-        public string Sex {
+        public string Sex
+        {
             get { return Sex; }
             set
             {
@@ -108,20 +121,20 @@ namespace Kurswalter.Core.Courses
         public DateTime? BirthDay
         {
             get { return BirthDay; }
-            set 
+            set
             {
                 if (value != null)
                     BirthDay = value;
             }
         }
-        
+
         private UserArt _kindOfUser = UserArt.Guest;
-        public UserArt kindOfUser     
+        public UserArt kindOfUser
         {
             get { return _kindOfUser; }
         }
 
-        public bool chanceKindOfUser (UserArt client, UserArt shouldBe)
+        public bool chanceKindOfUser(UserArt client, UserArt shouldBe)
         {
             bool retVal;
             if (client == UserArt.Admin)
@@ -141,7 +154,7 @@ namespace Kurswalter.Core.Courses
         {
             get { return _personalCourses; }
         }
-        public void AddCourse (ICourse newCourse)
+        public void AddCourse(ICourse newCourse)
         {
             if (newCourse == null)
                 throw new ArgumentNullException("NewCourse");

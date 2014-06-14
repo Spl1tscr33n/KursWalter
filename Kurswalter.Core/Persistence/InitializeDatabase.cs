@@ -46,7 +46,6 @@ namespace Kurswalter.Core.Persistence
                     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                     coursename CHAR(50),
                     room TEXT(1000),
-                    time DATETIME,
                     content_short TEXT(140),
                     content_long TEXT(1000),
                     reader CHAR(80),
@@ -62,9 +61,9 @@ namespace Kurswalter.Core.Persistence
         {
             try
             {
-                cmd = new MySqlCommand("DROP TABLE persons IF EXISTS persons", Connection.Connection);
+                cmd = new MySqlCommand("DROP TABLE IF EXISTS persons;", Connection.Connection);
                 cmd.ExecuteNonQuery();
-                cmd = new MySqlCommand("DROP TABLE courses IF EXISTS courses", Connection.Connection);
+                cmd = new MySqlCommand("DROP TABLE IF EXISTS courses;", Connection.Connection);
                 cmd.ExecuteNonQuery();
                 cmd = new MySqlCommand(table_persons, Connection.Connection);
                 cmd.ExecuteNonQuery();
@@ -96,20 +95,13 @@ namespace Kurswalter.Core.Persistence
 
 /*create table coursees
  *  ( 
- *  ID int constraint aab primary key,
- *  coursename char(50) constraint detail unique,
- *  room char(20),
- *  
- *  REMIND THE DATETIME DATABASE ERRORS
- *  C# TIME != DATABASE TIME
- *  1970 vs. 1900 
- *  only 70's kids will understand
- *  http://dev.mysql.com/doc/refman/5.6/en/date-and-time-types.html
- *
- *  time datetime,
- *  content_short char(140),
- *  content_long char(1000),
- *  reader char(80),
- *  translate("reader") = Dozent; 
-    )
+
+ * EDIT:
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    coursename CHAR(50),
+    room TEXT(1000),
+    content_short TEXT(140),
+    content_long TEXT(1000),
+    reader CHAR(80),
+    UNIQUE(id)
  */

@@ -28,12 +28,12 @@ namespace Kurswalter.Core.Persistence
         {
             //Here we'll use the saved Connection
             string cmd = @"INSERT persons VALUES(" 
-                            + person.UserName + ", "
-                            + person.FirstName + ", "
-                            + person.LastName + ", "
-                            + person.Sex + ", "
-                            + person.Title + ", "
-                            + person.EMailAdress + ", "
+                            + person.UserName       + ", "
+                            + person.FirstName      + ", "
+                            + person.LastName       + ", "
+                            + person.Sex            + ", "
+                            + person.Title          + ", "
+                            + person.EMailAdress    + ", "
                             + person.Password
                             + ");";
 
