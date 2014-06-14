@@ -100,17 +100,17 @@
     <Compile Include="Datails.xaml.cs">
       <DependentUpon>Datails.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UCHeaderLogo.xaml.cs">
+    <Compile Include="UserControls\UCHeaderLogo.xaml.cs">
       <DependentUpon>UCHeaderLogo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UCMasterArea.xaml.cs">
+    <Compile Include="UserControls\UCLoginPage.xaml.cs">
+      <DependentUpon>UCLoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCMasterArea.xaml.cs">
       <DependentUpon>UCMasterArea.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\InfoFrameView.xaml.cs">
       <DependentUpon>InfoFrameView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UCLogin.xaml.cs">
-      <DependentUpon>UCLogin.xaml</DependentUpon>
     </Compile>
     <Page Include="Datails.xaml">
       <SubType>Designer</SubType>
@@ -120,11 +120,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UCHeaderLogo.xaml">
+    <Page Include="UserControls\UCHeaderLogo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UCMasterArea.xaml">
+    <Page Include="UserControls\UCLoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UCMasterArea.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -145,10 +149,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Resources.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\UCLogin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -196,6 +196,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kurswalter.Core\Kurswalter.Core.csproj">
+      <Project>{1c8cfba2-f88d-4055-ac45-b289c11d82e8}</Project>
+      <Name>Kurswalter.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -13,10 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KursWalter
+namespace KursWalter.WpfClient.UserControls
 {
     /// <summary>
-    /// Interaktionslogik für UCLoginPage.xaml
+    /// Interaktionslogik für UCLogin.xaml
     /// </summary>
     public partial class UCLoginPage : UserControl
     {

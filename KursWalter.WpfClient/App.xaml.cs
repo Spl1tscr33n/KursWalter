@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Kurswalter.Core.Persistence;
+using Kurswalter.Core.Interfaces;
 
 namespace KursWalter
 {
@@ -16,9 +18,13 @@ namespace KursWalter
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            
             // Composition root
 
-
+            //ToDo: Datenbankverbindung einfügen
+            
+            
+            //ToDo: wenn connection, dann nötige Objekte Initialisieren und daten aus db laden
 
 
             var mainwindow = new MainWindow();
