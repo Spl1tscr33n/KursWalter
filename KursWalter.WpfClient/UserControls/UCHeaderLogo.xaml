@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="200">
+             d:DesignHeight="100" d:DesignWidth="150">
     <Border BorderBrush="Black" BorderThickness="1">
-        <Grid Background="LightGray">
-            <TextBlock VerticalAlignment="Top"  Text="Hier Kommt später das Logo rein!" TextWrapping="Wrap"  FontWeight="Bold" Margin="28,29,52,0"/>
+        <Grid>
+            <Image Width="Auto" Source="pack://siteoforigin:,,,/Resources/KursWalterLogo1.png"/>
         </Grid>
     </Border>
 </UserControl>

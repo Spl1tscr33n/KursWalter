@@ -12,8 +12,9 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <ContentControl ContentTemplate="{DynamicResource HeaderLogoViewModelTemplate}"/>
         <ListBox Grid.Column="0" Grid.Row="1">
-            <ContentControl ContentTemplate="{DynamicResource LoginViewModelTemplate}"/>
+            <ContentControl ContentTemplate="{StaticResource LoginViewModelTemplate}"/>
         </ListBox>
                 <ListBox Grid.Column="1" Grid.Row="1">
                     <ContentControl ContentTemplate="{DynamicResource InfoFrameViewModelTemplate}"/>
