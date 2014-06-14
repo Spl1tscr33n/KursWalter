@@ -104,6 +104,9 @@
     <Compile Include="UserControls\UCHeaderLogo.xaml.cs">
       <DependentUpon>UCHeaderLogo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UCCalendar.xaml.cs">
+      <DependentUpon>UCCalendar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCLoginPage.xaml.cs">
       <DependentUpon>UCLoginPage.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,9 @@
     </Compile>
     <Compile Include="UserControls\InfoFrameView.xaml.cs">
       <DependentUpon>InfoFrameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCSearchBar.xaml.cs">
+      <DependentUpon>UCSearchBar.xaml</DependentUpon>
     </Compile>
     <Page Include="Datails.xaml">
       <SubType>Designer</SubType>
@@ -124,6 +130,10 @@
     <Page Include="UserControls\UCHeaderLogo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UCCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UCLoginPage.xaml">
       <SubType>Designer</SubType>
@@ -152,6 +162,10 @@
     <Page Include="Resources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UCSearchBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -18,4 +18,10 @@
     <DataTemplate x:Key="LoginViewModelTemplate">
         <l1:UCLoginPage/>
     </DataTemplate>
+    <DataTemplate x:Key="SearchViewModelTemplate">
+        <l1:UCSearchBar/>
+    </DataTemplate>
+    <DataTemplate x:Key="CalendarViewModelTemplate">
+        <l1:UCCalendar/>
+    </DataTemplate>
 </ResourceDictionary>

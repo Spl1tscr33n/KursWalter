@@ -13,8 +13,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ContentControl ContentTemplate="{DynamicResource HeaderLogoViewModelTemplate}"/>
+        <ContentControl Grid.Column="1" HorizontalAlignment="Right" ContentTemplate="{DynamicResource SearchViewModelTemplate}"/>
         <ListBox Grid.Column="0" Grid.Row="1">
-            <ContentControl ContentTemplate="{StaticResource LoginViewModelTemplate}"/>
+            <ContentControl  ContentTemplate="{StaticResource LoginViewModelTemplate}"/>
+            <ContentControl Width="Auto" ContentTemplate="{StaticResource CalendarViewModelTemplate}"/>
         </ListBox>
                 <ListBox Grid.Column="1" Grid.Row="1">
                     <ContentControl ContentTemplate="{DynamicResource InfoFrameViewModelTemplate}"/>
