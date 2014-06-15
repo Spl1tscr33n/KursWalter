@@ -53,8 +53,6 @@ namespace Kurswalter.Core.Persistence
 
 
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
-
-
             try
             {
                 command.ExecuteNonQuery();
