@@ -47,14 +47,15 @@ namespace Kurswalter.Core.Persistence
             }
             //Here we'll use the saved Connection
             //TODO: Add Fields like in the Interfaces described        
-            string cmd = @"INSERT courses VALUES("
-                            + course.CourseName     + ", "
-                            + DatesAndPlaces        + ", "
-                            + course.ShortContent   + ", "
-                            + course.LongContent    + ", "
-                            + course.Reader         + ", "
+            string cmd =    "INSERT courses (coursename, room, content_short, " 
+                            + "content_long, reader, participants) VALUES("
+                            + course.CourseName     + "', '"
+                            + DatesAndPlaces        + "', '"
+                            + course.ShortContent   + "', '"
+                            + course.LongContent    + "', '"
+                            + course.Reader         + "', '"
                             + participants
-                            + ");";
+                            + "');";
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
             try
             {
