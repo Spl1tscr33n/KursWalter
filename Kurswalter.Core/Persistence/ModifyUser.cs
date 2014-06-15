@@ -27,19 +27,28 @@ namespace Kurswalter.Core.Persistence
             this.Connection = Connection;
         }
         public bool AddUser(IPerson person)
-        {
+        {   
+            //Here we'll use the saved Connection
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
-            //Here we'll use the saved Connection
+            string courses = "";
+            foreach (ICourse course in person.Courses)
+            {
+                courses += course.ID.ToString();
+                courses += "; ";
+            }
+            courses += ";;";
             //TODO: Add Fields like in the Interfaces described        
             string cmd = @"INSERT persons VALUES(" 
-                            + person.UserName                    + ", "
-                            + person.FirstName                   + ", "
-                            + person.LastName                    + ", "
-                            + person.Sex                         + ", "
-                            + person.Title                       + ", "
-                            + person.EMailAdress.ToString()      + ", "
-                            + person.Password
+                            + person.UserName                   + ", "
+                            + person.FirstName                  + ", "
+                            + person.LastName                   + ", "
+                            + person.Sex                        + ", "
+                            + person.Title                      + ", "
+                            + person.EMailAdress.ToString()     + ", "
+                            + person.Password                   + ", "
+                            + person.kindOfUser.ToString()      + ", "
+                            + person.Courses                    + ", "
                             + ");";
 
 
