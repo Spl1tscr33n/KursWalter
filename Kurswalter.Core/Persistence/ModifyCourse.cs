@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace KursWalter.Core.Persistence
 {
-    class ModifyCourse
+    class ModifyCourse : IModifyCourse
     {
         private string _errorMessage = null;
         public IDBConnection Connection { get; set; }
-        string ErrorMessage 
+        public string ErrorMessage 
         { 
             get
             {
@@ -20,24 +20,42 @@ namespace KursWalter.Core.Persistence
             }
         }
 
-        bool AddCourse(ICourse course)
+        public bool AddCourse(ICourse course)
         {
-            string DatesAndPlaces = null;
-            foreach(IDateAndPlace dnp in course.Happenings)
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
+            string DatesAndPlaces = "";
+            if (course.Happenings != null)
             {
-                DatesAndPlaces += dnp.Date.ToString();
-                DatesAndPlaces += ";";
-                DatesAndPlaces += dnp.Place;
-                DatesAndPlaces += ";;\n";
+                foreach (IDateAndPlace dnp in course.Happenings)
+                {
+                    DatesAndPlaces += dnp.Date.ToString();
+                    DatesAndPlaces += ";";
+                    DatesAndPlaces += dnp.Place;
+                    DatesAndPlaces += ";;\n";
+                }
+            }
+            string participants = "";
+            if (course.Participants != null)
+            {
+                foreach (IPerson person in course.Participants)
+                {
+                    participants += person.fullName();
+                    participants += "; ";
+                }
+                participants += ";;";
             }
             //Here we'll use the saved Connection
-            string cmd = @"INSERT courses VALUES("
-                            + course.CourseName     + ", "
-                            + DatesAndPlaces        + ", "
-                            + course.ShortContent   + ", "
-                            + course.LongContent    + ", "
-                            + course.Reader         + ", "
-                            + ");";
+            //TODO: Add Fields like in the Interfaces described        
+            string cmd =    "INSERT courses (coursename, room, content_short, " 
+                            + "content_long, reader, participants) VALUES("
+                            + course.CourseName     + "', '"
+                            + DatesAndPlaces        + "', '"
+                            + course.ShortContent   + "', '"
+                            + course.LongContent    + "', '"
+                            + course.Reader         + "', '"
+                            + participants
+                            + "');";
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
             try
             {
@@ -50,13 +68,17 @@ namespace KursWalter.Core.Persistence
             }
             return true;
         }
-        bool AddCourse(ICourse course, IDBConnection connection)
+        public bool AddCourse(ICourse course, IDBConnection Connection)
         {
-            Connection = connection;
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
+            this.Connection = Connection;
             return AddCourse(course);
         }
-        bool DeleteCourse(ICourse course)
+        public bool DeleteCourse(ICourse course)
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             //Here we'll use the saved Connection
             string cmd = "DELETE FROM courses WHERE id = " + course.ID + ";";
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
@@ -71,20 +93,38 @@ namespace KursWalter.Core.Persistence
             }
             return true;
         }
-        bool DeleteCourse(ICourse course, IDBConnection connection)
+        public bool DeleteCourse(ICourse course, IDBConnection Connection)
         {
-            Connection = connection;
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
+            this.Connection = Connection;
             return AddCourse(course);
         }
-        bool EditCourse(ICourse course)
+        public bool EditCourse(ICourse course)
         {
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
             string DatesAndPlaces = null;
-            foreach(IDateAndPlace dnp in course.Happenings)
+            if (course.Happenings != null)
             {
-                DatesAndPlaces += dnp.Date.ToString();
-                DatesAndPlaces += ";";
-                DatesAndPlaces += dnp.Place;
-                DatesAndPlaces += ";;\n";
+                foreach (IDateAndPlace dnp in course.Happenings)
+                {
+                    DatesAndPlaces += dnp.Date.ToString();
+                    DatesAndPlaces += ";";
+                    DatesAndPlaces += dnp.Place;
+                    DatesAndPlaces += ";;\n";
+                }
+            }
+
+            string participants = "";
+            if (course.Participants != null)
+            {
+                foreach (IPerson person in course.Participants)
+                {
+                    participants += person.ID.ToString();
+                    participants += "; ";
+                }
+                participants += ";;";
             }
 
             string cmd = @"UPDATE courses set username='"
@@ -92,8 +132,9 @@ namespace KursWalter.Core.Persistence
                 + DatesAndPlaces        + "' set last_name='"
                 + course.ShortContent   + "' set sex='"
                 + course.LongContent    + "' set title='"
-                + course.Reader         + "' set email'"    +
-                " where id='"           + course.ID         + "';";
+                + course.Reader         + "' set participants='"
+                + participants          + " where id='"           
+                + course.ID             + "';";
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
             try
             {
@@ -106,9 +147,11 @@ namespace KursWalter.Core.Persistence
             }
             return true;
         }
-        bool EditCourse(ICourse course, IDBConnection connection)
+        public bool EditCourse(ICourse course, IDBConnection Connection)
         {
-            Connection = connection;
+            if (Connection == null || Connection.Connection == null)
+                throw new ArgumentNullException();
+            this.Connection = Connection;
             return AddCourse(course);
         }
     }

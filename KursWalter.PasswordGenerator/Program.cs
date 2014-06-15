@@ -29,6 +29,8 @@ namespace KursWalter.PasswordGenerator
             System.Windows.Forms.Clipboard.SetText(password);
             Console.WriteLine("Das Passwort ist jetzt in der Zwischenablage!");
 
+            if (password == pwgenerator.generateHashMD5("test"))
+                Console.WriteLine("Test ok!");
             Console.ReadLine();
 
             

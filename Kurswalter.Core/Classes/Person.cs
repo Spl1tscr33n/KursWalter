@@ -13,17 +13,16 @@ namespace KursWalter.Core.Classes
     public class Person : IPerson
     {
         private static int _id = 1;
-        public int ID
-        {
-            get { return _id; }
-            set
-            {
-                if (value == _id)
-                    ID = value;
-            }
-        }
-        public string TelNum { get; set; }
-
+        public int ID { get; set; }
+        private string _UserName { get; set; }
+        private string _FirstName { get; set; }
+        private string _LastName { get; set; }
+        private string _Sex { get; set; }
+        private string _Title { get; set; }
+        private string _Password { get; set; }
+        private MailAddress _EMailAdress { get; set; }
+        private DateTime? _BirthDay { get; set; }
+        private UserArt _kindOfUser = UserArt.Guest;
         public Person()
         {
             _id++;
@@ -45,32 +44,32 @@ namespace KursWalter.Core.Classes
 
         public string UserName
         {
-            get { return UserName; }
+            get { return _UserName; }
             set
             {
                 if (value != null)
-                    UserName = value;
+                    _UserName = value;
             }
         }
 
         //todo: dafür sorgen, das nur erlaubte namen eingetragen werden, genauso wie telefonnummer und so... entweder mit spezeillen klassen oder überprüfungen
         public string FirstName
         {
-            get { return FirstName; }
+            get { return _FirstName; }
             set
             {
                 if (value != null)
-                    FirstName = value;
+                    _FirstName = value;
             }
         }
 
         public string LastName
         {
-            get { return LastName; }
+            get { return _LastName; }
             set
             {
                 if (value != null)
-                    LastName = value;
+                    _LastName = value;
             }
         }
         public string fullName()
@@ -79,56 +78,56 @@ namespace KursWalter.Core.Classes
         }
         public string Sex
         {
-            get { return Sex; }
+            get { return _Sex; }
             set
             {
                 if (value != null)
-                    Sex = value;
+                    _Sex = value;
             }
         }
 
         public string Title
         {
-            get { return Title; }
+            get { return _Title; }
             set
             {
                 if (value != null)
-                    Title = value;
+                    _Title = value;
             }
         }
 
         //hilfe für wfp http://stackoverflow.com/questions/2978348/wpf-password-box-into-a-securestring-in-c-sharp
         public string Password
         {
-            get { return Password; }
+            get { return _Password; }
             set
             {
                 if (value != null)
-                    Password = value;
+                    _Password = value;
             }
         }
 
         public MailAddress EMailAdress       //todo: vllt über email-klasse
         {
-            get { return EMailAdress; }
+            get { return _EMailAdress; }
             set
             {
                 if (value != null)
-                    EMailAdress = value;
+                    _EMailAdress = value;
             }
         }
 
         public DateTime? BirthDay
         {
-            get { return BirthDay; }
+            get { return _BirthDay; }
             set
             {
                 if (value != null)
-                    BirthDay = value;
+                    _BirthDay = value;
             }
         }
 
-        private UserArt _kindOfUser = UserArt.Guest;
+
         public UserArt kindOfUser
         {
             get { return _kindOfUser; }
