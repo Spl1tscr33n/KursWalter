@@ -7,7 +7,7 @@
              d:DesignHeight="100" d:DesignWidth="150">
     <Border BorderBrush="Black" BorderThickness="1">
         <Grid>
-            <Image Width="Auto" Source="pack://siteoforigin:,,,/Resources/KursWalterLogo1.png"/>
+            <Image Width="Auto" MinHeight="100" MinWidth="150" Source="pack://siteoforigin:,,,/Resources/KursWalterLogo1.png"/>
         </Grid>
     </Border>
 </UserControl>
