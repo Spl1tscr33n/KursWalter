@@ -106,15 +106,24 @@ namespace Kurswalter.Core.Persistence
         {
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
+            string courses = "";
+            foreach (ICourse course in person.Courses)
+            {
+                courses += course.ID.ToString();
+                courses += "; ";
+            }
+            courses += ";;";
             string cmd = @"UPDATE persons set username='" 
-                            + person.UserName       + "'set first_name='" 
-                            + person.FirstName      + "' set last_name='" 
-                            + person.LastName       + "' set sex='"
-                            + person.Sex            + "' set title='"
-                            + person.Title          + "' set email'"
-                            + person.EMailAdress    + "' set password='"
-                            + person.Password       +
-                            " where id='" + person.ID + "';";
+                            + person.UserName              + "'set first_name='" 
+                            + person.FirstName             + "' set last_name='" 
+                            + person.LastName              + "' set sex='"
+                            + person.Sex                   + "' set title='"
+                            + person.Title                 + "' set email'"
+                            + person.EMailAdress           + "' set password='"
+                            + person.Password              + "' set privileges='"
+                            + person.kindOfUser.ToString() + "' set courses='"
+                            + person.Courses               + "' where id='"
+                            + person.ID + "';";
 
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
 

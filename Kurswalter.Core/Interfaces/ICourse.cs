@@ -9,9 +9,6 @@ namespace Kurswalter.Core.Interfaces
     public interface ICourse
     {
         int ID {get;}
-
-        DateTime CreationDate { get; }
-
         string CourseName{get;}
         List<IDateAndPlace> Happenings{get;}
         void addHappening(IDateAndPlace newDate);
@@ -25,7 +22,7 @@ namespace Kurswalter.Core.Interfaces
         string Reader{get;}
 
         //vllt auch weglassen da über linq befhele filter bar
-        List<IPerson> Member{get; }
+        List<IPerson> Participants {get; }
         void AddMember(IPerson person);
     }
 }
