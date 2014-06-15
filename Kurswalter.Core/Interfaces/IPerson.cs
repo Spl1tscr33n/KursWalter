@@ -25,6 +25,5 @@ namespace Kurswalter.Core.Interfaces
         string Sex { get; set; }
         string Title { get; set; }
         string Password { get; set; }
-         
     }
 }

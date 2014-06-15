@@ -27,28 +27,31 @@ namespace Kurswalter.Core.Persistence
             this.Connection = Connection;
         }
         public bool AddUser(IPerson person)
-        {   
+        {
             //Here we'll use the saved Connection
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
             string courses = "";
-            foreach (ICourse course in person.Courses)
+            if (person.Courses != null)
             {
-                courses += course.ID.ToString();
-                courses += "; ";
+                foreach (ICourse course in person.Courses)
+                {
+                    courses += course.ID.ToString();
+                    courses += "; ";
+                }
+                courses += ";;";
             }
-            courses += ";;";
             //TODO: Add Fields like in the Interfaces described        
-            string cmd = @"INSERT persons VALUES(" 
-                            + person.UserName                   + ", "
-                            + person.FirstName                  + ", "
-                            + person.LastName                   + ", "
-                            + person.Sex                        + ", "
-                            + person.Title                      + ", "
-                            + person.EMailAdress.ToString()     + ", "
-                            + person.Password                   + ", "
-                            + person.kindOfUser.ToString()      + ", "
-                            + person.Courses                    + ", "
+            string cmd = @"INSERT persons VALUES("
+                            + person.UserName + ", "
+                            + person.FirstName + ", "
+                            + person.LastName + ", "
+                            + person.Sex + ", "
+                            + person.Title + ", "
+                            + person.EMailAdress.ToString() + ", "
+                            + person.Password + ", "
+                            + person.kindOfUser.ToString() + ", "
+                            + person.Courses
                             + ");";
 
 
@@ -64,7 +67,7 @@ namespace Kurswalter.Core.Persistence
             }
             return true;
         }
-        public bool AddUser(IPerson person, IDBConnection Connection) 
+        public bool AddUser(IPerson person, IDBConnection Connection)
         {
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
@@ -78,7 +81,7 @@ namespace Kurswalter.Core.Persistence
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
             //Here we'll use the saved Connection
-            string cmd = "DELETE FROM persons WHERE id = " + person.ID + ";" ;
+            string cmd = "DELETE FROM persons WHERE id = " + person.ID + ";";
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
             try
             {
@@ -91,7 +94,7 @@ namespace Kurswalter.Core.Persistence
             }
             return true;
         }
-        public bool DeleteUser(IPerson person, IDBConnection Connection) 
+        public bool DeleteUser(IPerson person, IDBConnection Connection)
         {
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
@@ -105,22 +108,25 @@ namespace Kurswalter.Core.Persistence
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
             string courses = "";
-            foreach (ICourse course in person.Courses)
+            if (person.Courses != null)
             {
-                courses += course.ID.ToString();
-                courses += "; ";
+                foreach (ICourse course in person.Courses)
+                {
+                    courses += course.ID.ToString();
+                    courses += "; ";
+                }
+                courses += ";;";
             }
-            courses += ";;";
-            string cmd = @"UPDATE persons set username='" 
-                            + person.UserName              + "'set first_name='" 
-                            + person.FirstName             + "' set last_name='" 
-                            + person.LastName              + "' set sex='"
-                            + person.Sex                   + "' set title='"
-                            + person.Title                 + "' set email'"
-                            + person.EMailAdress           + "' set password='"
-                            + person.Password              + "' set privileges='"
+            string cmd = @"UPDATE persons set username='"
+                            + person.UserName + "'set first_name='"
+                            + person.FirstName + "' set last_name='"
+                            + person.LastName + "' set sex='"
+                            + person.Sex + "' set title='"
+                            + person.Title + "' set email'"
+                            + person.EMailAdress + "' set password='"
+                            + person.Password + "' set privileges='"
                             + person.kindOfUser.ToString() + "' set courses='"
-                            + person.Courses               + "' where id='"
+                            + person.Courses + "' where id='"
                             + person.ID + "';";
 
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
@@ -136,13 +142,13 @@ namespace Kurswalter.Core.Persistence
             }
             return true;
         }
-        public bool EditUser(IPerson person, IDBConnection Connection) 
+        public bool EditUser(IPerson person, IDBConnection Connection)
         {
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
             //Here we'll use the given connection
             this.Connection = Connection;
-            EditUser(person);            
+            EditUser(person);
             return true;
         }
     }

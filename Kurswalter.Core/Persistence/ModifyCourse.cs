@@ -25,20 +25,26 @@ namespace Kurswalter.Core.Persistence
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
             string DatesAndPlaces = "";
-            foreach(IDateAndPlace dnp in course.Happenings)
+            if (course.Happenings != null)
             {
-                DatesAndPlaces += dnp.Date.ToString();
-                DatesAndPlaces += ";";
-                DatesAndPlaces += dnp.Place;
-                DatesAndPlaces += ";;\n";
+                foreach (IDateAndPlace dnp in course.Happenings)
+                {
+                    DatesAndPlaces += dnp.Date.ToString();
+                    DatesAndPlaces += ";";
+                    DatesAndPlaces += dnp.Place;
+                    DatesAndPlaces += ";;\n";
+                }
             }
             string participants = "";
-            foreach(IPerson person in course.Participants)
+            if (course.Participants != null)
             {
-                participants += person.fullName();
-                participants += "; ";
+                foreach (IPerson person in course.Participants)
+                {
+                    participants += person.fullName();
+                    participants += "; ";
+                }
+                participants += ";;";
             }
-            participants += ";;";
             //Here we'll use the saved Connection
             //TODO: Add Fields like in the Interfaces described        
             string cmd = @"INSERT courses VALUES("
@@ -47,7 +53,7 @@ namespace Kurswalter.Core.Persistence
                             + course.ShortContent   + ", "
                             + course.LongContent    + ", "
                             + course.Reader         + ", "
-                            + participants          + ", "
+                            + participants
                             + ");";
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
             try
@@ -98,21 +104,27 @@ namespace Kurswalter.Core.Persistence
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
             string DatesAndPlaces = null;
-            foreach(IDateAndPlace dnp in course.Happenings)
+            if (course.Happenings != null)
             {
-                DatesAndPlaces += dnp.Date.ToString();
-                DatesAndPlaces += ";";
-                DatesAndPlaces += dnp.Place;
-                DatesAndPlaces += ";;\n";
+                foreach (IDateAndPlace dnp in course.Happenings)
+                {
+                    DatesAndPlaces += dnp.Date.ToString();
+                    DatesAndPlaces += ";";
+                    DatesAndPlaces += dnp.Place;
+                    DatesAndPlaces += ";;\n";
+                }
             }
 
             string participants = "";
-            foreach (IPerson person in course.Participants)
+            if (course.Participants != null)
             {
-                participants += person.ID.ToString();
-                participants += "; ";
+                foreach (IPerson person in course.Participants)
+                {
+                    participants += person.ID.ToString();
+                    participants += "; ";
+                }
+                participants += ";;";
             }
-            participants += ";;";
 
             string cmd = @"UPDATE courses set username='"
                 + course.CourseName     + "' set coursename='"
