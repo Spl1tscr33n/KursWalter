@@ -24,7 +24,7 @@ namespace Kurswalter.Core.Persistence
         {
             if (Connection == null || Connection.Connection == null)
                 throw new ArgumentNullException();
-            string DatesAndPlaces = null;
+            string DatesAndPlaces = "";
             foreach(IDateAndPlace dnp in course.Happenings)
             {
                 DatesAndPlaces += dnp.Date.ToString();
@@ -32,6 +32,13 @@ namespace Kurswalter.Core.Persistence
                 DatesAndPlaces += dnp.Place;
                 DatesAndPlaces += ";;\n";
             }
+            string participants = "";
+            foreach(IPerson person in course.Participants)
+            {
+                participants += person.fullName();
+                participants += "; ";
+            }
+            participants += ";;";
             //Here we'll use the saved Connection
             //TODO: Add Fields like in the Interfaces described        
             string cmd = @"INSERT courses VALUES("
@@ -40,6 +47,7 @@ namespace Kurswalter.Core.Persistence
                             + course.ShortContent   + ", "
                             + course.LongContent    + ", "
                             + course.Reader         + ", "
+                            + participants          + ", "
                             + ");";
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
             try
@@ -98,13 +106,22 @@ namespace Kurswalter.Core.Persistence
                 DatesAndPlaces += ";;\n";
             }
 
+            string participants = "";
+            foreach (IPerson person in course.Participants)
+            {
+                participants += person.ID.ToString();
+                participants += "; ";
+            }
+            participants += ";;";
+
             string cmd = @"UPDATE courses set username='"
                 + course.CourseName     + "' set coursename='"
                 + DatesAndPlaces        + "' set last_name='"
                 + course.ShortContent   + "' set sex='"
                 + course.LongContent    + "' set title='"
-                + course.Reader         + "' set email'"    +
-                " where id='"           + course.ID         + "';";
+                + course.Reader         + "' set participants='"
+                + participants          + " where id='"           
+                + course.ID             + "';";
             MySqlCommand command = new MySqlCommand(cmd, Connection.Connection);
             try
             {

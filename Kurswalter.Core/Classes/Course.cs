@@ -78,7 +78,7 @@ namespace Kurswalter.Core.Courses
 
 
         //vllt auch weglassen da über linq befhele filter bar
-        public List<IPerson> Member
+        public List<IPerson> Participants
         {
             get { return _member; }
         }

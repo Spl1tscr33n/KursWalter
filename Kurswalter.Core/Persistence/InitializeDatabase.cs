@@ -31,25 +31,30 @@ namespace Kurswalter.Core.Persistence
             @"CREATE TABLE persons
                 ( 
                     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                    username CHAR(20),
-                    first_name CHAR(40),
-                    last_name CHAR(40),
-                    sex CHAR(5),
-                    title CHAR(20),
-                    email CHAR(254),
-                    password CHAR(128),
-                    UNIQUE(id)
+                    username        CHAR(20),
+                    first_name      CHAR(40),
+                    last_name       CHAR(40),
+                    sex             CHAR(5),
+                    title           CHAR(20),
+                    email           TEXT(254),
+                    password        CHAR(128),
+                    privileges      CHAR(20),
+                    courses         CHAR(128),
+                    UNIQUE(id),
+                    UNIQUE(username)
                 );";
         private readonly string table_courses =
             @"CREATE TABLE courses
                 ( 
-                    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                    coursename CHAR(50),
-                    room TEXT(1000),
-                    content_short TEXT(140),
-                    content_long TEXT(1000),
-                    reader CHAR(80),
-                    UNIQUE(id)
+                    id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                    coursename      CHAR(50),
+                    room            TEXT(1000),
+                    content_short   TEXT(140),
+                    content_long    TEXT(1000),
+                    reader          CHAR(80),
+                    participants    TEXT(10000),
+                    UNIQUE(id),
+                    UNIQUE(coursename)
                 );";
         public IDBConnection Connection { get; set; }
         public InitializeDatabase(IDBConnection connection)
