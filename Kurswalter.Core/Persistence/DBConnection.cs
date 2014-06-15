@@ -42,10 +42,9 @@ namespace KursWalter.Persistence
             {
                 throw new ArgumentNullException();
             }
-            if(port == null)
-                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
-            else
-                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";Port=" + port + ";";
+            _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+            if(port != null)
+                _connectionString += "Port=" + port + ";";
         }
         public bool Connect(string host, string db_name, string port, string user, string password)
         {
@@ -53,10 +52,10 @@ namespace KursWalter.Persistence
             {
                 throw new ArgumentNullException();
             }
-            if (port == null)
-                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
-            else
-                _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";Port=" + port + ";";
+            //Do we break DRY here cuz we make the same as in the constructor?
+            _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
+            if (port != null)
+                _connectionString += "Port=" + port + ";";
             return Connect(_connectionString);
         }
 
