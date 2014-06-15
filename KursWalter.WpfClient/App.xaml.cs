@@ -5,8 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Kurswalter.Core.Persistence;
-using Kurswalter.Core.Interfaces;
+using KursWalter.Core.Persistence;
+using KursWalter.Core.Interfaces;
 
 namespace KursWalter
 {

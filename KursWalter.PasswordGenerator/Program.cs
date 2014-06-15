@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Kurswalter.Core.Classes;
+using KursWalter.Core.Classes;
 
 
 namespace KursWalter.PasswordGenerator

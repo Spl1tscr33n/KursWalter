@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Kurswalter.Core.Interfaces;
-using Kurswalter.Core.Enums;
+using KursWalter.Core.Interfaces;
+using KursWalter.Core.Enums;
 using System.Security;
 using System.Net.Mail;
 
-namespace Kurswalter.Core.Courses
+namespace KursWalter.Core.Classes
 {
     public class Person : IPerson
     {
@@ -30,7 +30,7 @@ namespace Kurswalter.Core.Courses
             ID = _id;
         }
 
-        public Person(string username, string firstname, string lastname, string sex, string title, SecureString password, MailAddress emailaddy, DateTime date)
+        public Person(string username, string firstname, string lastname, string sex, string title, string password, MailAddress emailaddy, DateTime date)
             : this()
         {
             UserName = username;
@@ -98,7 +98,7 @@ namespace Kurswalter.Core.Courses
         }
 
         //hilfe für wfp http://stackoverflow.com/questions/2978348/wpf-password-box-into-a-securestring-in-c-sharp
-        public SecureString Password
+        public string Password
         {
             get { return Password; }
             set

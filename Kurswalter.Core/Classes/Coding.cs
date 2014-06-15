@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace Kurswalter.Core.Classes
+namespace KursWalter.Core.Classes
 {
     public class Coding
     {

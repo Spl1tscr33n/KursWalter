@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Kurswalter.Core.Enums;
+using KursWalter.Core.Enums;
 using System.Net.Mail;
 using System.Security;
 
-namespace Kurswalter.Core.Interfaces
+namespace KursWalter.Core.Interfaces
 {
     public interface IPerson
     {
@@ -25,7 +25,7 @@ namespace Kurswalter.Core.Interfaces
         void AddCourse(ICourse newCourse);
         string Sex { get; set; }
         string Title { get; set; }
-        SecureString Password { get; set; }
+        string Password { get; set; }
          
     }
 }

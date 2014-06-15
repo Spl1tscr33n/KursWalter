@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kurswalter.Core.Interfaces
+namespace KursWalter.Core.Interfaces
 {
     public interface IModifyUser
     {

@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Kurswalter.Core.Interfaces;
-
-namespace KursWalter.Persistence
+using KursWalter.Core.Interfaces;
+namespace KursWalter.Core.Persistence
 {
     public class DBConnection : IDBConnection
     {
-        /*var Mysqlconnection = new DBConnection("localhost", "Kurswalter", "root", "1DDf33slnH?");*/
+        /*var Mysqlconnection = new DBConnection("localhost", "KursWalter", "root", "1DDf33slnH?");*/
         private MySqlConnection _conn = null;
         private string _connectionString = null;
         private bool _isConnected = false;

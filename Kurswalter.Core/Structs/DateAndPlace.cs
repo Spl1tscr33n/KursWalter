@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Kurswalter.Core.Interfaces;
+using KursWalter.Core.Interfaces;
 
-namespace Kurswalter.Core.Structs
+namespace KursWalter.Core.Structs
 {
     public struct DateAndPlace : IDateAndPlace
     {

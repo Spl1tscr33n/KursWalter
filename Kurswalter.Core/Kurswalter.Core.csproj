@@ -7,8 +7,8 @@
     <ProjectGuid>{1C8CFBA2-F88D-4055-AC45-B289C11D82E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kurswalter.Core</RootNamespace>
-    <AssemblyName>Kurswalter.Core</AssemblyName>
+    <RootNamespace>KursWalter.Core</RootNamespace>
+    <AssemblyName>KursWalter.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\KursWalter.WpfClient\</SolutionDir>

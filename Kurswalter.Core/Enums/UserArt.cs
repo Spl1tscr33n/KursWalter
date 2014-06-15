@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kurswalter.Core.Enums
+namespace KursWalter.Core.Enums
 {
     public enum UserArt
     {

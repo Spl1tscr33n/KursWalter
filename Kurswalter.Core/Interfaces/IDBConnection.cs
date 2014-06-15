@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Kurswalter.Core.Interfaces;
+using KursWalter.Core.Interfaces;
 using MySql.Data.MySqlClient;
 
-namespace Kurswalter.Core.Interfaces
+namespace KursWalter.Core.Interfaces
 {
     public interface IDBConnection
     {

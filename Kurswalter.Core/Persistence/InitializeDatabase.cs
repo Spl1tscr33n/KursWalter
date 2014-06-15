@@ -1,5 +1,5 @@
-﻿using Kurswalter.Core.Interfaces;
-using KursWalter.Persistence;
+﻿using KursWalter.Core.Interfaces;
+using KursWalter.Core.Persistence;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
  * it creates the tables for the course management
 ***/
 
-namespace Kurswalter.Core.Persistence
+namespace KursWalter.Core.Persistence
 {
     public class InitializeDatabase
     {
