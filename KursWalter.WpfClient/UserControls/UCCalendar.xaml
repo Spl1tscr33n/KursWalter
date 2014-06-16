@@ -11,8 +11,8 @@
                <RowDefinition Height="Auto"/>
                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btMinCalendar" Content="5" FontFamily="Marlett" VerticalAlignment="Top" Click="btMinCalendar_Click"/>
-            <Calendar Grid.Row="1" Width="Auto" Height="Auto" Margin="0 -2" />
+            <Button x:Name="btMinCalendar" Content="5" FontFamily="Marlett" VerticalAlignment="Top" Command="{Binding ExpandCommand}" Click="btMinCalendar_Click"/>
+            <Calendar Grid.Row="1" Width="Auto" Height="Auto" Margin="0 -2" Visibility="{Binding IsContentVisible}" />
 
      </Grid>
     </Border>
