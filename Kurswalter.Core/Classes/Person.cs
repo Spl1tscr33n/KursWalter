@@ -107,7 +107,7 @@ namespace KursWalter.Core.Classes
             }
         }
 
-        public MailAddress EMailAdress       //todo: vllt über email-klasse
+        public MailAddress EMailAdress
         {
             get { return _EMailAdress; }
             set

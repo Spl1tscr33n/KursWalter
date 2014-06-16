@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Classes\Coding.cs" />
     <Compile Include="Classes\Course.cs" />
+    <Compile Include="Classes\CourseFactory.cs" />
     <Compile Include="Classes\CourseList.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Enums\UserArt.cs" />
