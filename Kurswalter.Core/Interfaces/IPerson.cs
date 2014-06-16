@@ -12,7 +12,6 @@ namespace KursWalter.Core.Interfaces
     public interface IPerson
     {
         int ID { get; set; }        
-        string TelNum { get; set; }
         string UserName { get; set; }
         string FirstName { get; set; }
         string LastName { get; set; }
