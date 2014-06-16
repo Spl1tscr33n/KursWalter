@@ -14,7 +14,7 @@ namespace KursWalter.Core.Classes
     {
         private static int _id = 1;
         public int ID { get; set; }
-        private string _UserName { get; set; }
+        private string _username;
         private string _FirstName { get; set; }
         private string _LastName { get; set; }
         private string _Sex { get; set; }
@@ -42,13 +42,18 @@ namespace KursWalter.Core.Classes
             BirthDay = date;
         }
 
+        public int MyProperty { get; set; }
+
+        
+        
+
         public string UserName
         {
-            get { return _UserName; }
+            get { return _username; }
             set
             {
                 if (value != null)
-                    _UserName = value;
+                    _username = value;
             }
         }
 
