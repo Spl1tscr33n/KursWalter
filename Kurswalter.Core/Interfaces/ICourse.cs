@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace KursWalter.Core.Interfaces
 {
-    public interface ICourse
+    public interface ICourse : IPersistenceItem
     {
-        int ID {get;}
+        int ID { get; set; }
         string CourseName{get;}
         List<IDateAndPlace> Happenings{get;}
         void addHappening(IDateAndPlace newDate);

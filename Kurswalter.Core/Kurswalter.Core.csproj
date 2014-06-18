@@ -82,6 +82,8 @@
     <Compile Include="Interfaces\IDBConnection.cs" />
     <Compile Include="Interfaces\IModifyCourse.cs" />
     <Compile Include="Interfaces\IModifyUser.cs" />
+    <Compile Include="Interfaces\IPersistence.cs" />
+    <Compile Include="Interfaces\IPersistenceItem.cs" />
     <Compile Include="Interfaces\IPerson.cs" />
     <Compile Include="Persistence\DBConnection.cs" />
     <Compile Include="Persistence\InitializeDatabase.cs" />

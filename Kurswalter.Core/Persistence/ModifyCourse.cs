@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KursWalter.Core.Persistence
 {
-    class ModifyCourse : IModifyCourse
+    class ModifyCourse : IModifyCourse//, IPersistence
     {
         private string _errorMessage = null;
         public IDBConnection Connection { get; set; }
@@ -154,5 +154,6 @@ namespace KursWalter.Core.Persistence
             this.Connection = Connection;
             return AddCourse(course);
         }
+
     }
 }
