@@ -20,7 +20,7 @@ namespace KursWalter
             SecureString password = new SecureString();
             password.AppendChar('o');
 
-            var Mysqlconnection = new DBConnection("localhost", "Kurswalter", "1337", "root", "1DDf33slnH?");
+            var Mysqlconnection = new DBConnection("localhost", "Kurswalter", "3306", "root", "1DDf33slnH?");
             if (!Mysqlconnection.Connect())
             {
                 Console.WriteLine(Mysqlconnection.ErrorMessage);

@@ -9,7 +9,7 @@ using System.Security;
 
 namespace KursWalter.Core.Interfaces
 {
-    public interface IPerson : IPersistenceItem
+    public interface IPerson
     {
         int ID { get; set; }        
         string UserName { get; set; }

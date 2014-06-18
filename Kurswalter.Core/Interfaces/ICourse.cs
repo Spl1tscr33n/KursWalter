@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KursWalter.Core.Interfaces
 {
-    public interface ICourse : IPersistenceItem
+    public interface ICourse
     {
         int ID { get; set; }
         string CourseName{get;}

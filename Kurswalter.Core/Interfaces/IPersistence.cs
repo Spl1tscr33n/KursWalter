@@ -10,6 +10,7 @@ namespace KursWalter.Core.Interfaces
     {
         bool Delete(IPersistenceItem item);
         bool Add(IPersistenceItem item);
+        bool Modify(IPersistenceItem item);
         IPersistenceItem GetItemByID(int ID);
     }
 }
