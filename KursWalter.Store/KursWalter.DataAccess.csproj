@@ -7,7 +7,7 @@
     <ProjectGuid>{9C25FEE6-A92E-4B86-BB56-63F5D1182CB1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KursWalter.Access</RootNamespace>
+    <RootNamespace>KursWalter.DataAccess</RootNamespace>
     <AssemblyName>KursWalter.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -50,14 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CourseDbContext.cs" />
+    <Compile Include="Classes\CourseDbContextAdapter.cs" />
     <Compile Include="Classes\CourseUnitOfWorkFactory.cs" />
     <Compile Include="Classes\DbSetRepositoryAdapter.cs" />
-    <Compile Include="Classes\CourseDbContextAdapter.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ICourseUnitOfWork.cs" />
-    <Compile Include="Interfaces\IStoreUnitOfWorkFactory.cs" />
+    <Compile Include="Interfaces\ICourseUnitOfWorkFactory.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Interfaces\IUnitOfWorkFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

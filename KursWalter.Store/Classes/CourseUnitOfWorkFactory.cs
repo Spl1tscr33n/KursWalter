@@ -1,38 +1,21 @@
 ﻿using KursWalter.DataAccess.Interfaces;
+using KursWalter.DataAccess.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KursWalter.Access.Classes
+namespace KursWalter.DataAccess.Classes
 {
-    public class CourseUnitOfWorkFactory : ICourseUnitOfWork
+    public class CourseUnitOfWorkFactory : ICourseUnitOfWorkFactory
     {
-
-        public IRepository<Core.Classes.Person> Persons
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public IRepository<Core.Classes.Course> Courses
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public void SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
 
         public ICourseUnitOfWork Create()
         {
-            throw new NotImplementedException();
+            var dbContext = new CourseDbContext();
+            var unitOfWorkAdapter = new CourseDbContextAdapter(dbContext);
+            return unitOfWorkAdapter;
         }
     }
 }

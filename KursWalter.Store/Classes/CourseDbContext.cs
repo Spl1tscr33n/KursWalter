@@ -3,9 +3,9 @@ using KursWalter.Core.Classes;
 
 namespace KursWalter.DataAccess.Classes
 {
-    public class StoreDbContext : DbContext
+    public class CourseDbContext : DbContext
     {
-        DbSet<Person> Persons { get; set; }
-        DbSet<Course> Courses { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Course> Courses { get; set; }
     }
 }

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using KursWalter.Core.Persistence;
 using KursWalter.Core.Interfaces;
 using KursWalter.Core.Classes;
+using KursWalter.DataAccess.Classes;
+using KursWalter.DataAccess.Interfaces;
 using System.Net.Mail;
 using MySql.Data.MySqlClient;
 
@@ -17,6 +19,11 @@ namespace KursWalter
     {
         static void Main(string[] args)
         {
+            CourseUnitOfWorkFactory factory = new CourseUnitOfWorkFactory();
+            factory.Create();
+
+
+            /*
             SecureString password = new SecureString();
             password.AppendChar('o');
 
@@ -49,6 +56,7 @@ namespace KursWalter
             reader.Close();
             Mysqlconnection.Disconnect();
             Console.ReadLine();
+             * */
         }
     }
 }

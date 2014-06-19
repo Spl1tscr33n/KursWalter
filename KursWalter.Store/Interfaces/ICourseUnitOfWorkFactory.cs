@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KursWalter.Access.Interfaces
+namespace KursWalter.DataAccess.Interfaces
 {
     public interface ICourseUnitOfWorkFactory
     {
