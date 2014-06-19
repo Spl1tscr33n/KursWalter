@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 using KursWalter.Core.Persistence;
-using KursWalter.Core.Interfaces;
 using KursWalter.Core.Classes;
 using System.Net.Mail;
 using MySql.Data.MySqlClient;
