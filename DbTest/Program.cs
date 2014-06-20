@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
-using KursWalter.Core.Persistence;
-using KursWalter.Core.Interfaces;
+using KursWalter.DataAccess.Classes;
+using KursWalter.DataAccess.Interfaces;
 using KursWalter.Core.Classes;
 using KursWalter.Core.Interfaces;
 using System.Net.Mail;
