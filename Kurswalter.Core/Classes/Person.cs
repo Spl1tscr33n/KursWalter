@@ -23,6 +23,7 @@ namespace KursWalter.Core.Classes
         private MailAddress _emailaddress;
         private DateTime? _birthday;
         private UserArt _kindofuser = UserArt.Guest;
+        private List<ICourse> _personalCourses = new List<ICourse>();
         public Person()
         {
             _id++;
@@ -58,6 +59,7 @@ namespace KursWalter.Core.Classes
         }
 
         //todo: dafür sorgen, das nur erlaubte namen eingetragen werden, genauso wie telefonnummer und so... entweder mit spezeillen klassen oder überprüfungen
+        //ToDo: (Rico)ja, da hier freitexte eingetragen werden muss man halt auf den nutzer vertrauen .... Tel ist eh als optionales Feld zu sehen...
         public string FirstName
         {
             get { return _firstname; }
@@ -153,7 +155,7 @@ namespace KursWalter.Core.Classes
             return retVal;
         }
 
-        private List<ICourse> _personalCourses;
+       
         public List<ICourse> Courses
         {
             get { return _personalCourses; }

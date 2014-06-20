@@ -11,10 +11,10 @@ namespace KursWalter.Core.Classes
     {
         private static int _id = 1;
         private string _dozent;
-        private List<IPerson> _member;
+        private List<IPerson> _member = new List<IPerson>();
         private DateTime _creationdate;
         private string _name;
-        private List<IDateAndPlace> _happenings;
+        private List<IDateAndPlace> _happenings = new List<IDateAndPlace>();
 
         public int ID { get; set; }
         public DateTime CreationDate { get; private set; }

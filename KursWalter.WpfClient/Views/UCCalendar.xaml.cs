@@ -28,7 +28,7 @@ namespace KursWalter.WpfClient.UserControls
 
         private void btMinCalendar_Click(object sender, RoutedEventArgs e)
         {
-            if (btMinCalendar.Content == "5")
+            if (Convert.ToString(btMinCalendar.Content) == "5")
             {
                 this.btMinCalendar.Content = "6";
                 this.Height = btMinCalendar.ActualHeight;
