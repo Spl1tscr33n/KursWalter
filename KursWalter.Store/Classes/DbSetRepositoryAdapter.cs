@@ -13,7 +13,7 @@ namespace KursWalter.DataAccess.Classes
     {
         private readonly DbSet<T> _dbSet;
 
-        public DbSetRepositoryAdapter(DbSet<T> dbSet) 
+        public DbSetRepositoryAdapter(DbSet<T> dbSet)
         {
             if (_dbSet == null) throw new ArgumentNullException("dbSet");
             this._dbSet = dbSet;
