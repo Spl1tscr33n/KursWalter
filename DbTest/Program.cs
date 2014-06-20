@@ -1,11 +1,11 @@
-<<<<<<< HEAD
-using KursWalter.DataAccess.Classes;
-using KursWalter.DataAccess.Interfaces;
-=======
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security;
+using System.Text;
+using System.Threading.Tasks;
 using KursWalter.Core.Persistence;
->>>>>>> 588636f4ed1bbf1d24dceceb49361e780700f1a1
+using KursWalter.Core.Interfaces;
 using KursWalter.Core.Classes;
 using KursWalter.Core.Interfaces;
 using System.Net.Mail;
@@ -30,17 +30,17 @@ namespace KursWalter
             var Mysqlconnection = new DBConnection("localhost", "Kurswalter", "3306", "root", "1DDf33slnH?");
             if (!Mysqlconnection.Connect())
             {
-            Console.WriteLine(Mysqlconnection.ErrorMessage);
+                Console.WriteLine(Mysqlconnection.ErrorMessage);
             }
             else
             {
-            Console.WriteLine("Connnected Successfully");
+                Console.WriteLine("Connnected Successfully");
             }
             var Init = new InitializeDatabase(Mysqlconnection);
 
             if (!Init.Init())
             {
-            Console.WriteLine(Init.ErrorMessage);
+                Console.WriteLine(Init.ErrorMessage);
             }
 
             var ModUser = new ModifyUser();
@@ -51,7 +51,7 @@ namespace KursWalter
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-            Console.WriteLine(reader.GetInt32(0) + " | " + reader.GetString(1) + " | " + reader.GetString(2) + " | " + reader.GetString(3) + " | " + reader.GetString(4) + " | " + reader.GetString(5) + " | " + reader.GetString(6));
+                Console.WriteLine(reader.GetInt32(0) + " | " + reader.GetString(1) + " | " + reader.GetString(2) + " | " + reader.GetString(3) + " | " + reader.GetString(4) + " | " + reader.GetString(5) + " | " + reader.GetString(6));
             }
             reader.Close();
             Mysqlconnection.Disconnect();
