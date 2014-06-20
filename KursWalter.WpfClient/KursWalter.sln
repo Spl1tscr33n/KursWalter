@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursWalter.PasswordGenerato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursWalter.DbTest", "..\DbTest\KursWalter.DbTest.csproj", "{EFA783C0-1567-4A61-AF87-A7BC9DA4DF5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursWalter.DataAccess", "..\KursWalter.Store\KursWalter.DataAccess.csproj", "{9C25FEE6-A92E-4B86-BB56-63F5D1182CB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursWalter.DataAccess", "..\KursWalter.DataAccess\KursWalter.DataAccess.csproj", "{9C25FEE6-A92E-4B86-BB56-63F5D1182CB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

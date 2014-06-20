@@ -9,7 +9,7 @@ using KursWalter.Core.Classes;
 
 namespace KursWalter.DataAccess.Classes
 {
-    class CourseDbContextAdapter : ICourseUnitOfWork
+    public class CourseDbContextAdapter : ICourseUnitOfWork
     {
         private readonly CourseDbContext _courseDbContext;
         private readonly IRepository<Person> _persons;

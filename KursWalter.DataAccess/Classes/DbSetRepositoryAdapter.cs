@@ -15,7 +15,7 @@ namespace KursWalter.DataAccess.Classes
 
         public DbSetRepositoryAdapter(DbSet<T> dbSet)
         {
-            if (_dbSet == null) throw new ArgumentNullException("dbSet");
+            if (dbSet == null) throw new ArgumentNullException("dbSet");
             this._dbSet = dbSet;
         }
         public IEnumerable<T> GetAll()

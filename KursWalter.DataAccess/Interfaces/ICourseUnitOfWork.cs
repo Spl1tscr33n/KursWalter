@@ -12,5 +12,7 @@ namespace KursWalter.DataAccess.Interfaces
     {
         IRepository<Person> Persons { get; }
         IRepository<Course> Courses { get; }
+
+        void SaveChanges();
     }
 }
