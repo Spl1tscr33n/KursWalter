@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 using KursWalter.DataAccess.Classes;
 using KursWalter.DataAccess.Interfaces;
+=======
+﻿using System;
+using System.Security;
+using KursWalter.Core.Persistence;
+>>>>>>> 588636f4ed1bbf1d24dceceb49361e780700f1a1
 using KursWalter.Core.Classes;
 using KursWalter.Core.Interfaces;
 using System.Net.Mail;
