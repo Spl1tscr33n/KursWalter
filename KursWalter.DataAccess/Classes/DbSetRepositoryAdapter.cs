@@ -9,14 +9,14 @@ using System.Data.Entity;
 
 namespace KursWalter.DataAccess.Classes
 {
-    public class DbSetRepositoryAdapter<T> : IRepository<T> where T : class
+    class DbSetRepositoryAdapter<T> : IRepository<T> where T : class
     {
         private readonly DbSet<T> _dbSet;
 
         public DbSetRepositoryAdapter(DbSet<T> dbSet)
         {
             if (dbSet == null) throw new ArgumentNullException("dbSet");
-            _dbSet = dbSet;
+            this._dbSet = dbSet;
         }
         public IEnumerable<T> GetAll()
         {
