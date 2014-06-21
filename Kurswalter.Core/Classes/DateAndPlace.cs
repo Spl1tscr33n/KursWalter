@@ -7,7 +7,7 @@ using KursWalter.Core.Interfaces;
 
 namespace KursWalter.Core.Structs
 {
-    public struct DateAndPlace : IDateAndPlace
+    public class DateAndPlace : IDateAndPlace
     {
         private DateTime _date;
         private string _place;

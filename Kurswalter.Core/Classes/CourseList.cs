@@ -9,19 +9,26 @@ namespace KursWalter.Core.Classes
 {
     public class CourseList
     {
+        private ICourseFactory _courseFactory;
+        public CourseList (ICourseFactory courseFactory)
+        {
+            if (courseFactory == null)
+                throw new ArgumentNullException("curseFactory");
+            _courseFactory = courseFactory;
+        }
         private List<ICourse> _courseList = new List<ICourse>();
 
         public List<ICourse> courseList { get; set; }
 
         public void defaultCourseList()
         {
-            var first = new CourseFactory(new Course("HowToCryUnderShower", "shower head"), "step by step", "crying and bobbing");
-            var second = new CourseFactory(new Course("Ufology for advanced", "I.T."), "wantToCallHome", "What to do if you have fisit from out of space");
+            var first = _courseFactory.createCourse("HowToCryUnderShower", "shower head", "step by step", "crying and bobbing");
+            var second = _courseFactory.createCourse("Ufology for advanced", "I.T.", "wantToCallHome", "What to do if you have fisit from out of space");
             
             var defaultcourseList = new List<ICourse>
                                          {
-                                             first.NewCourse,
-                                             second.NewCourse
+                                             first,
+                                             second
                                              //todo: ein oder zwei Kurse für testzwecke erstellen
                                          };
             _courseList = defaultcourseList;
