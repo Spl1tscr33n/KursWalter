@@ -8,7 +8,7 @@ namespace KursWalter.Core.Interfaces
 {
     public interface ICourse
     {
-        int ID {get;}
+        int ID { get; set; }
         string CourseName{get;}
         List<IDateAndPlace> Happenings{get;}
         void addHappening(IDateAndPlace newDate);

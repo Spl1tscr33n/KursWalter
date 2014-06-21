@@ -51,15 +51,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServerCompact">
-      <HintPath>packages\EntityFramework.SqlServerCompact.6.1.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>packages\MySql.Data.6.8.3\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
@@ -76,10 +67,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
-    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -98,28 +85,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CalendarViewModel.cs" />
     <Compile Include="Datails.xaml.cs">
       <DependentUpon>Datails.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCHeaderLogo.xaml.cs">
+    <Compile Include="ViewModels\InfoFrameViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\UCHeaderLogo.xaml.cs">
       <DependentUpon>UCHeaderLogo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCCalendar.xaml.cs">
+    <Compile Include="Views\UCCalendar.xaml.cs">
       <DependentUpon>UCCalendar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCLoginPage.xaml.cs">
+    <Compile Include="Views\UCLoginPage.xaml.cs">
       <DependentUpon>UCLoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCMasterArea.xaml.cs">
+    <Compile Include="Views\UCMasterArea.xaml.cs">
       <DependentUpon>UCMasterArea.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\InfoFrameView.xaml.cs">
+    <Compile Include="Views\InfoFrameView.xaml.cs">
       <DependentUpon>InfoFrameView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCPwDontNow.xaml.cs">
+    <Compile Include="Views\UCPwDontNow.xaml.cs">
       <DependentUpon>UCPwDontNow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCSearchBar.xaml.cs">
+    <Compile Include="Views\UCSearchBar.xaml.cs">
       <DependentUpon>UCSearchBar.xaml</DependentUpon>
     </Compile>
     <Page Include="Datails.xaml">
@@ -130,27 +121,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UCHeaderLogo.xaml">
+    <Page Include="Views\UCHeaderLogo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\UCCalendar.xaml">
+    <Page Include="Views\UCCalendar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UCLoginPage.xaml">
+    <Page Include="Views\UCLoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UCMasterArea.xaml">
+    <Page Include="Views\UCMasterArea.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\InfoFrameView.xaml">
+    <Page Include="Views\InfoFrameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -158,7 +149,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -166,11 +157,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\UCPwDontNow.xaml">
+    <Page Include="Views\UCPwDontNow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UCSearchBar.xaml">
+    <Page Include="Views\UCSearchBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

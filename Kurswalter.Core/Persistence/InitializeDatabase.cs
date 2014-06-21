@@ -84,29 +84,3 @@ namespace KursWalter.Core.Persistence
         }
     }
 }
-/*http://www.functionx.com/mysqlnet/csharp/Lesson05.htm */
-/*create table persons
- *  ( 
- *  ID int constraint aaa primary key,
- *  username char(20) constraint detail unique,
- *  first_name char(40),
- *  last_name char(40),
- *  sex char(5),
- *  title char(20),
- *  email char(254),
- *  password char(128),
-    )
- */
-
-/*create table coursees
- *  ( 
-
- * EDIT:
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    coursename CHAR(50),
-    room TEXT(1000),
-    content_short TEXT(140),
-    content_long TEXT(1000),
-    reader CHAR(80),
-    UNIQUE(id)
- */

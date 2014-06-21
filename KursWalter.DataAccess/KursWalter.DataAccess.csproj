@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1C8CFBA2-F88D-4055-AC45-B289C11D82E8}</ProjectGuid>
+    <ProjectGuid>{9C25FEE6-A92E-4B86-BB56-63F5D1182CB1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KursWalter.Core</RootNamespace>
-    <AssemblyName>KursWalter.Core</AssemblyName>
+    <RootNamespace>KursWalter.DataAccess</RootNamespace>
+    <AssemblyName>KursWalter.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\KursWalter.WpfClient\</SolutionDir>
@@ -42,8 +42,10 @@
       <Private>True</Private>
       <HintPath>..\KursWalter.WpfClient\packages\MySql.Data.6.8.3\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\KursWalter.WpfClient\packages\MySql.ConnectorNET.Entity.6.8.3.2\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    <Reference Include="MySql.Data.Entity, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF5, Version=6.7.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\KursWalter.WpfClient\packages\MySql.Data.Entity.6.7.5\lib\net45\MySql.Data.Entity.EF5.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -55,41 +57,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Coding.cs" />
-    <Compile Include="Classes\Course.cs" />
-    <Compile Include="Classes\CourseFactory.cs" />
-    <Compile Include="Classes\CourseList.cs" />
-    <Compile Include="Classes\Person.cs" />
-    <Compile Include="Enums\UserArt.cs" />
-    <Compile Include="Interfaces\ICourse.cs" />
-    <Compile Include="Interfaces\IDateAndPlace.cs" />
-    <Compile Include="Interfaces\IDBConnection.cs" />
-    <Compile Include="Interfaces\IModifyCourse.cs" />
-    <Compile Include="Interfaces\IModifyUser.cs" />
-    <Compile Include="Interfaces\IPersistence.cs" />
-    <Compile Include="Interfaces\IPersistenceItem.cs" />
-    <Compile Include="Interfaces\IPerson.cs" />
-    <Compile Include="Persistence\DBConnection.cs" />
-    <Compile Include="Persistence\InitializeDatabase.cs" />
-    <Compile Include="Persistence\ModifyCourse.cs" />
-    <Compile Include="Persistence\ModifyUser.cs" />
+    <Compile Include="Classes\CourseDbContext.cs" />
+    <Compile Include="Classes\CourseDbContextAdapter.cs" />
+    <Compile Include="Classes\CourseUnitOfWorkFactory.cs" />
+    <Compile Include="Classes\DbSetRepositoryAdapter.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\ICourseUnitOfWork.cs" />
+    <Compile Include="Interfaces\ICourseUnitOfWorkFactory.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Structs\DateAndPlace.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kurswalter.Core\KursWalter.Core.csproj">
+      <Project>{1c8cfba2-f88d-4055-ac45-b289c11d82e8}</Project>
+      <Name>KursWalter.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

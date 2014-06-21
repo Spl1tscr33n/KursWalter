@@ -2,19 +2,21 @@
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1C8CFBA2-F88D-4055-AC45-B289C11D82E8}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{EFA783C0-1567-4A61-AF87-A7BC9DA4DF5F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KursWalter.Core</RootNamespace>
-    <AssemblyName>KursWalter.Core</AssemblyName>
+    <RootNamespace>KursWalter</RootNamespace>
+    <AssemblyName>DbTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\KursWalter.WpfClient\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,6 +26,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,8 +45,12 @@
       <Private>True</Private>
       <HintPath>..\KursWalter.WpfClient\packages\MySql.Data.6.8.3\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data.Entity.EF5, Version=6.7.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\KursWalter.WpfClient\packages\MySql.Data.Entity.6.7.5\lib\net45\MySql.Data.Entity.EF5.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data.Entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\KursWalter.WpfClient\packages\MySql.ConnectorNET.Entity.6.8.3.2\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <HintPath>..\KursWalter.WpfClient\packages\MySql.Data.Entity.EF6.6.8.3\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -55,41 +62,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Coding.cs" />
-    <Compile Include="Classes\Course.cs" />
-    <Compile Include="Classes\CourseFactory.cs" />
-    <Compile Include="Classes\CourseList.cs" />
-    <Compile Include="Classes\Person.cs" />
-    <Compile Include="Enums\UserArt.cs" />
-    <Compile Include="Interfaces\ICourse.cs" />
-    <Compile Include="Interfaces\IDateAndPlace.cs" />
-    <Compile Include="Interfaces\IDBConnection.cs" />
-    <Compile Include="Interfaces\IModifyCourse.cs" />
-    <Compile Include="Interfaces\IModifyUser.cs" />
-    <Compile Include="Interfaces\IPersistence.cs" />
-    <Compile Include="Interfaces\IPersistenceItem.cs" />
-    <Compile Include="Interfaces\IPerson.cs" />
-    <Compile Include="Persistence\DBConnection.cs" />
-    <Compile Include="Persistence\InitializeDatabase.cs" />
-    <Compile Include="Persistence\ModifyCourse.cs" />
-    <Compile Include="Persistence\ModifyUser.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Structs\DateAndPlace.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <ProjectReference Include="..\Kurswalter.Core\KursWalter.Core.csproj">
+      <Project>{1c8cfba2-f88d-4055-ac45-b289c11d82e8}</Project>
+      <Name>KursWalter.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KursWalter.PasswordGenerator\KursWalter.PasswordGenerator.csproj">
+      <Project>{a4eb2584-936b-4051-88ba-49c3d2400137}</Project>
+      <Name>KursWalter.PasswordGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KursWalter.DataAccess\KursWalter.DataAccess.csproj">
+      <Project>{9c25fee6-a92e-4b86-bb56-63f5d1182cb1}</Project>
+      <Name>KursWalter.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KursWalter.WpfClient\KursWalter.WpfClient.csproj">
+      <Project>{194956e9-86b2-4a43-a685-178b07476603}</Project>
+      <Name>KursWalter.WpfClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

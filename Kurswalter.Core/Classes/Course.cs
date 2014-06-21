@@ -9,30 +9,27 @@ namespace KursWalter.Core.Classes
 {
     public class Course : ICourse
     {
+        private static int _id = 1;
         private string _dozent;
-        private List<IPerson> _member;
+        private List<IPerson> _member = new List<IPerson>();
         private DateTime _creationdate;
         private string _name;
-        private List<IDateAndPlace> _happenings;
-        
-        
-        public int ID
-        {
-            get { return ID; }
-        }
+        private List<IDateAndPlace> _happenings = new List<IDateAndPlace>();
+
+        public int ID { get; set; }
         public DateTime CreationDate { get; private set; }
 
         public string CourseName
         {
             get { return _name; }
         }
-
-        // ctor
         public Course (string Name, string dozent)
         {
             _name = Name;
             _dozent = dozent;
             _creationdate = DateTime.Now;
+            _id++;
+            ID = _id;
 
         }
 
@@ -49,7 +46,6 @@ namespace KursWalter.Core.Classes
             _happenings.Add(newDate);
         }
 
-       
 
         public string ShortContent
         {

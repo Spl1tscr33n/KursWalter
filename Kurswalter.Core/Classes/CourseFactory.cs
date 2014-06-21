@@ -16,8 +16,8 @@ namespace KursWalter.Core.Classes
         private readonly string _longContent;
 
 
-        private List<IPerson> _member;
-        private List<IDateAndPlace> _happenings;
+        //private List<IPerson> _member;
+        //private List<IDateAndPlace> _happenings;
 
         public CourseFactory(ICourse course, string shortContent, string longContent)
         {
@@ -27,6 +27,8 @@ namespace KursWalter.Core.Classes
             _creationdate = DateTime.Now;
         }
 
+
+        //Todo: (Rico) vllt hier nochmals aussplitten in CourseFactory und darüber eine CourseListFactory bauen?
         public void createCourse()
         {
             _course.addHappening(new DateAndPlace(new DateTime(2014, 7, 8, 10, 30, 00), "Moon"));   //verstoß gegen dry ist mir bewusst... aber viel gerade noch nix besseres ein sry... am schluff vllt mit ner whil schleife die so lange läuft bis user knopf drückt damit es weiter geht
