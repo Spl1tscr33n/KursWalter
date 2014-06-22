@@ -83,7 +83,6 @@ namespace KursWalter.Core.Classes
                     _lastname = value;
             }
         }
-        [NotMapped]
         public string fullName()
         {
             return _firstname + " " + _lastname;
