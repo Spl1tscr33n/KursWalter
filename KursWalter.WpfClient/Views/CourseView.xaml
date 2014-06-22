@@ -4,17 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="500">
     <Border BorderBrush="Black" BorderThickness="1">
         <Grid Background="White">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
+            <TextBlock Style="{DynamicResource CourseHeaderStyle}" Text="Hier Soll Course Header rein..." />
+            <TextBlock Grid.Row="1" Text="Hier soll die Kurzbeschreibung rein..."/>
+            <TextBlock Grid.Row="2" Text="Hier eventuell die Lange Beschreibung"/>
+            <TextBlock Grid.Row="3" Text="Hier eventuell das Datum"/>
+            <TextBlock Grid.Row="4" Text="Hier eventuell der Ort"/>
+            <TextBlock Grid.Row="5" Text="Hier eventuell der Dozent"/>
+            
         </Grid>
     </Border>
 </UserControl>

@@ -3,4 +3,12 @@
                     xmlns:l="clr-namespace:KursWalter.WpfClient">
     
     <!-- Resource dictionary entries should be defined here. -->
+    
+    <Style x:Key="CourseHeaderStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        
+    </Style>
 </ResourceDictionary>

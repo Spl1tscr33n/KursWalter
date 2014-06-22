@@ -90,6 +90,8 @@
     <Compile Include="Datails.xaml.cs">
       <DependentUpon>Datails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CourseViewModel.cs" />
+    <Compile Include="ViewModels\ICourseViewModel.cs" />
     <Compile Include="ViewModels\InfoFrameViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\CourseView.xaml.cs">
