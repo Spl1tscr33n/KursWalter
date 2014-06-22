@@ -41,9 +41,13 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\KursWalter.WpfClient\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\KursWalter.WpfClient\packages\MySql.Data.6.8.3\lib\net45\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\KursWalter.WpfClient\packages\MySQL.NET.6.6.4\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\KursWalter.WpfClient\packages\MySQL.NET.6.6.4\lib\net40\MySql.Data.Entity.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data.Entity.EF5, Version=6.7.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -52,13 +56,19 @@
     <Reference Include="MySql.Data.Entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\KursWalter.WpfClient\packages\MySql.Data.Entity.EF6.6.8.3\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Web, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\KursWalter.WpfClient\packages\MySQL.NET.6.6.4\lib\net40\MySql.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>

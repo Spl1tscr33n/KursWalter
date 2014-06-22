@@ -13,8 +13,9 @@ namespace KursWalter
         {
             CourseUnitOfWorkFactory factory = new CourseUnitOfWorkFactory("localhost", "Kurswalter", null, "root", "1DDf33slnH?");
             ICourseUnitOfWork adapter = factory.Create();
-            adapter.Persons.Add(new Person("WurstPeter", "Peter", "Wurst", "M", "Dr. Prof", "TellMeASecureStringPassword", new MailAddress("IlikeBigBoobs@horny.com"), new DateTime(1991, 6, 24)));
+            adapter.Persons.Add(new Person("WurstHans", "TellMeASecureStringPassword", "Peter", "Wurst", "Dr. Prof", "M", new MailAddress("IlikeBigBoobs@horny.com"), new DateTime(1991, 6, 24), Core.Enums.UserArt.Admin));
             adapter.SaveChanges();
+            Console.ReadLine();
             
 
             /*

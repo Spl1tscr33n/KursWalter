@@ -19,8 +19,9 @@ namespace KursWalter.DataAccess.Classes
                 throw new ArgumentNullException();
             }
             _connectionString = "Server=" + host + ";Database=" + db_name + ";Uid=" + user + ";Pwd=" + password + ";";
-            if(port != null)
-                _connectionString += "Port=" + port + ";";
+            if (port == null)
+                port = "3306";
+            _connectionString += "Port=" + port + ";";
         }
 
         public ICourseUnitOfWork Create()

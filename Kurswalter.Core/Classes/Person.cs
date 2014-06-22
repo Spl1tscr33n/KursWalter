@@ -7,6 +7,7 @@ using KursWalter.Core.Interfaces;
 using KursWalter.Core.Enums;
 using System.Security;
 using System.Net.Mail;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KursWalter.Core.Classes
 {
@@ -22,15 +23,14 @@ namespace KursWalter.Core.Classes
         private string _password;
         private MailAddress _emailaddress;
         private DateTime? _birthday;
-        private UserArt _kindofuser = UserArt.Guest;
-        private List<ICourse> _personalCourses = new List<ICourse>();
+        private UserArt _kindOfUser = UserArt.Guest;
         public Person()
         {
             _id++;
             ID = _id;
         }
         public int ID { get; set; }
-        public Person(string username, string firstname, string lastname, string sex, string title, string password, MailAddress emailaddy, DateTime date)
+        public Person(string username, string password, string firstname, string lastname, string title, string sex, MailAddress emailaddy, DateTime birthday, UserArt kindOfUser)
             : this()
         {
             UserName = username;
@@ -40,13 +40,9 @@ namespace KursWalter.Core.Classes
             Title = title;
             Password = password;
             EMailAdress = emailaddy;
-            BirthDay = date;
-        }
-
-        public int MyProperty { get; set; }
-
-        
-        
+            BirthDay = birthday;
+            _kindOfUser = kindOfUser;
+        }  
 
         public string UserName
         {
@@ -57,9 +53,17 @@ namespace KursWalter.Core.Classes
                     _username = value;
             }
         }
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                if (value != null)
+                    _password = value;
+            }
+        }
 
         //todo: dafür sorgen, das nur erlaubte namen eingetragen werden, genauso wie telefonnummer und so... entweder mit spezeillen klassen oder überprüfungen
-        //ToDo: (Rico)ja, da hier freitexte eingetragen werden muss man halt auf den nutzer vertrauen .... Tel ist eh als optionales Feld zu sehen...
         public string FirstName
         {
             get { return _firstname; }
@@ -83,15 +87,6 @@ namespace KursWalter.Core.Classes
         {
             return _firstname + " " + _lastname;
         }
-        public string Sex
-        {
-            get { return _sex; }
-            set
-            {
-                if (value != null)
-                    _sex = value;
-            }
-        }
 
         public string Title
         {
@@ -102,15 +97,13 @@ namespace KursWalter.Core.Classes
                     _title = value;
             }
         }
-
-        //hilfe für wfp http://stackoverflow.com/questions/2978348/wpf-password-box-into-a-securestring-in-c-sharp
-        public string Password
+        public string Sex
         {
-            get { return _password; }
+            get { return _sex; }
             set
             {
                 if (value != null)
-                    _password = value;
+                    _sex = value;
             }
         }
 
@@ -134,18 +127,17 @@ namespace KursWalter.Core.Classes
             }
         }
 
-
         public UserArt kindOfUser
         {
-            get { return _kindofuser; }
+            get { return _kindOfUser; }
         }
 
-        public bool chanceKindOfUser(UserArt client, UserArt shouldBe)
+        public bool changeKindOfUser(UserArt client, UserArt shouldBe)
         {
             bool retVal;
             if (client == UserArt.Admin)
             {
-                _kindofuser = shouldBe;
+                _kindOfUser = shouldBe;
                 retVal = true;
             }
             else
@@ -155,7 +147,7 @@ namespace KursWalter.Core.Classes
             return retVal;
         }
 
-       
+        private List<ICourse> _personalCourses;
         public List<ICourse> Courses
         {
             get { return _personalCourses; }
