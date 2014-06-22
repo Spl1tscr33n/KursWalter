@@ -17,6 +17,7 @@ namespace KursWalter.DataAccess.Classes
         {
             if (dbSet == null) throw new ArgumentNullException("dbSet");
             this._dbSet = dbSet;
+            
         }
         public IEnumerable<T> GetAll()
         {
@@ -30,7 +31,14 @@ namespace KursWalter.DataAccess.Classes
 
         public void Add(T item)
         {
-            _dbSet.Add(item);
+            try
+            {
+                _dbSet.Add(item);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void Remove(T item)

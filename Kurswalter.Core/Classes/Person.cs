@@ -7,6 +7,7 @@ using KursWalter.Core.Interfaces;
 using KursWalter.Core.Enums;
 using System.Security;
 using System.Net.Mail;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KursWalter.Core.Classes
 {
@@ -22,14 +23,14 @@ namespace KursWalter.Core.Classes
         private string _password;
         private MailAddress _emailaddress;
         private DateTime? _birthday;
-        private UserArt _kindofuser = UserArt.Guest;
+        private UserArt _kindOfUser = UserArt.Guest;
         public Person()
         {
             _id++;
             ID = _id;
         }
         public int ID { get; set; }
-        public Person(string username, string firstname, string lastname, string sex, string title, string password, MailAddress emailaddy, DateTime date)
+        public Person(string username, string password, string firstname, string lastname, string title, string sex, MailAddress emailaddy, DateTime birthday, UserArt kindOfUser)
             : this()
         {
             UserName = username;
@@ -39,13 +40,9 @@ namespace KursWalter.Core.Classes
             Title = title;
             Password = password;
             EMailAdress = emailaddy;
-            BirthDay = date;
-        }
-
-        public int MyProperty { get; set; }
-
-        
-        
+            BirthDay = birthday;
+            _kindOfUser = kindOfUser;
+        }  
 
         public string UserName
         {
@@ -54,6 +51,15 @@ namespace KursWalter.Core.Classes
             {
                 if (value != null)
                     _username = value;
+            }
+        }
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                if (value != null)
+                    _password = value;
             }
         }
 
@@ -77,18 +83,10 @@ namespace KursWalter.Core.Classes
                     _lastname = value;
             }
         }
+        [NotMapped]
         public string fullName()
         {
             return _firstname + " " + _lastname;
-        }
-        public string Sex
-        {
-            get { return _sex; }
-            set
-            {
-                if (value != null)
-                    _sex = value;
-            }
         }
 
         public string Title
@@ -100,15 +98,13 @@ namespace KursWalter.Core.Classes
                     _title = value;
             }
         }
-
-        //hilfe für wfp http://stackoverflow.com/questions/2978348/wpf-password-box-into-a-securestring-in-c-sharp
-        public string Password
+        public string Sex
         {
-            get { return _password; }
+            get { return _sex; }
             set
             {
                 if (value != null)
-                    _password = value;
+                    _sex = value;
             }
         }
 
@@ -132,18 +128,17 @@ namespace KursWalter.Core.Classes
             }
         }
 
-
         public UserArt kindOfUser
         {
-            get { return _kindofuser; }
+            get { return _kindOfUser; }
         }
 
-        public bool chanceKindOfUser(UserArt client, UserArt shouldBe)
+        public bool changeKindOfUser(UserArt client, UserArt shouldBe)
         {
             bool retVal;
             if (client == UserArt.Admin)
             {
-                _kindofuser = shouldBe;
+                _kindOfUser = shouldBe;
                 retVal = true;
             }
             else

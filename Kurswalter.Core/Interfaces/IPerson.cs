@@ -19,7 +19,7 @@ namespace KursWalter.Core.Interfaces
         DateTime? BirthDay { get; set; }
         MailAddress EMailAdress { get; set; }
         UserArt kindOfUser { get;}
-        bool chanceKindOfUser(UserArt client, UserArt shouldBe);
+        bool changeKindOfUser(UserArt client, UserArt shouldBe);
         List<ICourse> Courses { get; }
         void AddCourse(ICourse newCourse);
         string Sex { get; set; }

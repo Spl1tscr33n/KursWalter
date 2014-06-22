@@ -34,8 +34,8 @@ namespace KursWalter.Core.Classes
             _course.addHappening(new DateAndPlace(new DateTime(2014, 7, 10, 20, 30, 00), "Earth"));
             _course.addHappening(new DateAndPlace(new DateTime(2014, 7, 11, 14, 30, 00), "Pluto"));
 
-            _course.AddMember(new Person("hello", "wold", "ape", "NaN", "", "", null, new DateTime(1936, 7, 11)));
-            _course.AddMember(new Person("by", "by", "American", "Pi", "Mrs.", "", null, new DateTime(1974, 8, 5)));
+            _course.AddMember(new Person("hello", "wold", "ape", "NaN", "", "", null, new DateTime(1936, 7, 11), Enums.UserArt.Curator));
+            _course.AddMember(new Person("by", "by", "American", "Pi", "Mrs.", "", null, new DateTime(1974, 8, 5), Enums.UserArt.Guest));
 
             _course.LongContent = _longContent;
             _course.ShortContent = _shortContent;
